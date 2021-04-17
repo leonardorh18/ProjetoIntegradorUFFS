@@ -7,7 +7,7 @@
 body {
 	font-size: 1em;
   	width: 100%;
-	overflow-x: hidden;
+	
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -152,11 +152,7 @@ body {
 }
 /*----------------- CAD ALUNO*/
 
-.div-cad-aluno {
 
-	margin-top: 100px;
-
-}
 .main-div-cad-aluno {
 	
 	position: relative;
@@ -198,3 +194,87 @@ body {
 	transition: all 0.3 ease;
 	cursor: pointer;
   }
+
+  /* -------------------------- ALUNOS --------------------- */
+
+  .main-div-alunos {
+	
+	display: block;
+	position: static;
+	z-index: 1;
+	background: #e2dfdf;
+	width: 1000px;
+	margin: 0 auto 100px;
+	padding: 10px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	margin-top: 100px;
+	
+	
+}
+
+.lista-aluno{
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+}
+
+.aluno{
+
+	width: 1300px;
+	min-height: 30px;
+	padding-top: 10px;
+	
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	background-color: #cac7c7;
+	border: 1px solid #0c0c0c;
+	margin: 5px;
+	transition: 0.5s;
+
+}
+
+.aluno .opcoes{
+
+	position: relative ;
+	float: right;
+	padding-right: 15px;
+
+}
+
+.aluno  a {
+	text-decoration: none;	
+}
+
+
+.aluno .nome-aluno{
+
+	position: relative ;
+	float: left;
+	padding-left: 15px;
+
+}
+
+.aluno .aluno-editar {
+	padding: 10px;
+	color: #064fad;
+}
+.aluno .aluno-deletar {
+	padding: 10px;
+	color: #e2280f;
+}
+
+.aluno .aluno-visu {
+	padding: 10px;
+	color: #0d5e1a;
+}
+
+.lista-aluno h3 {
+	padding-bottom: 10px;
+	color: #039297;
+
+}
