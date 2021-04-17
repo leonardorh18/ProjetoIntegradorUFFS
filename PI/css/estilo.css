@@ -1,0 +1,200 @@
+* {
+	margin: 0;
+	padding: 0;
+	
+		
+}
+body {
+	font-size: 1em;
+  	width: 100%;
+	overflow-x: hidden;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: absolute;
+	background-color: #bdbebd;
+	
+}
+	
+/* --------------------- CABEÇALHO ----------------------------------------------------------------- */	
+#cabecalho {
+	background-color: #45ac45;
+  	width: 100%;
+	height: 80px;
+	text-align: start;
+
+}
+
+#cabecalho h1{
+	text-align: center;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+/* --------------------- ASIDE MENU */
+
+ #menu-lateral {
+	 padding-top: 20px;
+	background-color: #74e274;
+	position: relative;
+	width: 200px;
+	height: 100vh;
+
+	float:left;
+	display: block;
+	clear: both;
+ 
+}
+
+#menu ul li{
+	display: flex; /* transforma elementos de bloco em inline */
+	padding-left: 5px;
+	padding-top: 10px;
+}
+#menu a {
+	text-decoration: none;	
+}
+
+#menu a:link, a:visited {
+	color:rgb(5, 181, 235);
+}
+
+#menu a:hover {
+	text-decoration: underline;
+}
+
+#menu a:link {
+	color: rgb(2, 1, 1);
+	font-weight: bold;
+	padding: 8px 12px;
+}
+
+#menu a:hover {
+	color: #037412;
+	background: #FFF;
+	text-decoration: none;
+}
+#menu hr {
+
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+	border: 10px solid black;
+	border-width: 1px;
+	
+}
+#menu h1:hover{
+	cursor: pointer;
+}
+
+#menu h1 {
+
+	color: red;
+	padding-left: 15px;
+	
+
+ }
+
+/* ------------------------ MAIN*/
+.main {
+	
+	background-color: #bdbebd;
+	height: 100vh;
+
+}
+.main h1 {
+	padding-top: 200px;
+	vertical-align: middle;
+	
+	color: #050505;
+	text-align: center;
+
+
+}
+
+/*----------------- CADASTROS*/
+
+.main-div-opcoes-cad {
+
+	width: 100%;
+
+	/* Safari and Chrome */
+	padding-left: 45%;
+	padding-top: 10%;
+
+}
+
+.main-div-opcoes-cad  ul li{
+	display: flex; /* transforma elementos de bloco em inline */
+	
+	padding-top: 20px;
+}
+
+.main-div-opcoes-cad  span{
+	font-size: 50px;
+	color: #037412;
+	padding-top: 10px;
+}
+.main-div-opcoes-cad span:hover{
+	cursor: pointer;
+}
+
+.main-div-opcoes-cad span:hover {
+	text-decoration: underline;
+}
+
+.main-div-opcoes-cad  a {
+	text-decoration: none;	
+}
+/*----------------- CAD ALUNO*/
+
+.div-cad-aluno {
+
+	margin-top: 100px;
+
+}
+.main-div-cad-aluno {
+	
+	position: relative;
+	z-index: 1;
+	background: #e2dfdf;
+	max-width: 360px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	margin-top: 150px;
+	width: 80%;
+
+}
+
+.main-div-cad-aluno .form-input {
+	outline: 0;
+	background: #ffffff;
+	border-bottom: 20px solid rgb(231, 210, 15);
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+  
+  }
+.main-div-cad-aluno .button-cad {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background:#05830c;
+	width: 50%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+  }
