@@ -250,8 +250,68 @@ body {
 	text-decoration: none;	
 }
 
+.header-lista-alunos{
 
-.aluno .nome-aluno{
+	width: 1300px;
+	min-height: 30px;
+	padding-top: 10px;
+	
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	background-color: #f1f1f1;
+	border: 1px dotted #0c0c0c;
+	margin: 5px;
+	transition: 0.5s;
+
+}
+
+.header-lista-alunos .input-search-aluno{
+	outline: 0;
+	width: 50%;
+	padding: 5px;
+	border: 1px solid gray;
+	background: #ffffff;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 14px;
+
+}
+.header-lista-alunos .button-search-aluno {
+
+	font-family: "Roboto", sans-serif;
+	
+	outline: 0;
+	background:#05830c;
+	padding: 5px;
+	border: 0;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+  }
+
+.header-lista-alunos h3{
+	padding-bottom: 10px;
+	color: #039297;
+	position: relative ;
+	float: left;
+	padding-left: 15px;
+
+
+}
+
+.header-lista-alunos .procura-aluno {
+
+	position: relative ;
+	float: right;
+	width: 30%;
+	padding-right: 15px;
+
+}
+
+.aluno .nome-aluno {
 
 	position: relative ;
 	float: left;
@@ -273,8 +333,3 @@ body {
 	color: #0d5e1a;
 }
 
-.lista-aluno h3 {
-	padding-bottom: 10px;
-	color: #039297;
-
-}
