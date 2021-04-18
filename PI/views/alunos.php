@@ -3,26 +3,26 @@
 
 
 
-<main class = 'main-alunos'>
+<main class = 'main-item'>
     
-    <div class = 'main-div-alunos'>
+    <div class = 'main-div-items'>
         
         
         
-        <div class = 'lista-aluno'> 
+        <div class = 'lista'> 
 
 
-           <div class = 'header-lista-alunos'>
+           <div class = 'header-lista-items'>
 
             <a href="index.php?view=cad_aluno"><h3> Clique aqui para cadastrar um aluno </h3> </a>
 
-            <div class = 'procura-aluno'>
+            <div class = 'procura-item'>
 
                 <form action="">
                     
-                    <input type="text" id="searchAluno" class="input-search-aluno" name="searchAluno" placeholder="Nome do aluno" required>
+                    <input type="text" id="searchAluno" class="input-search-item" name="searchAluno" placeholder="Nome do aluno" required>
 
-                    <input type="button" class="button-search-aluno" value="Procurar"  >
+                    <input type="button" class="button-search-item" value="Procurar"  >
 
                 </form>
                 
@@ -31,15 +31,15 @@
 
             </div>
 
-            <div class = 'aluno'>
+            <div class = 'item'>
 
-                <span class = 'nome-aluno'> Ana Clara </span>
+                <span class = 'nome-item'> Ana Clara </span>
 
                 <div class = 'opcoes'>
 
-                    <a href="index.php?view=edit_aluno"><span class = 'aluno-editar' onclick=""> Editar </span> </a>
-                    <a href=""><span class = 'aluno-deletar' onclick="deleteAluno('Leonardo')"> Deletar </span> </a>
-                    <a href=""><span class = 'aluno-visu' onclick="visuAluno('Leonardo')"> Visualizar </span> </a>
+                    <a href="index.php?view=edit_aluno"><span class = 'item-editar' onclick=""> Editar </span> </a>
+                    <a href=""><span class = 'item-deletar' onclick="deleteAluno('Leonardo')"> Deletar </span> </a>
+                    <a href=""><span class = 'item-visu' onclick="visuAluno('Leonardo')"> Visualizar </span> </a>
 
                 </div>
 

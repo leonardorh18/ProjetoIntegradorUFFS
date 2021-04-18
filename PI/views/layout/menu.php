@@ -16,7 +16,7 @@
                 
                 <li><a href="index.php?view=cadastros">Cadastros</a> </li>
                 <hr>
-                <li> <a href="index.php?view=pedido">Controle de turma</a> </li>
+                <li> <a href="index.php?view=turmas_prof">Controle de turma</a> </li>
                 <hr>
                 <li> <a href="index.php?view=pedido">Anotações</a> </li>
                 <hr>

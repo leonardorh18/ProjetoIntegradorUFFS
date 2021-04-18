@@ -4,7 +4,7 @@
 
 
 
-    <div class = 'main-div-cad-aluno'>
+<div class = 'main-div-cad-item'>
 
 
 <form>
