@@ -74,7 +74,7 @@
                 
             
 
-            <input type="button" class="button-cad" value="Finalizar registro"  onclick="addAlunos()">
+            <input type="button" class="button-cad" value="Adicionar alunos"  onclick="addAlunos()">
             <br>
             
           

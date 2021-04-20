@@ -1,6 +1,6 @@
 
 
-    <div class = 'main-div-cad-item'>
+<div class = 'main-div-cad-item'>
 
 
 <form class = 'cad-turma'>
