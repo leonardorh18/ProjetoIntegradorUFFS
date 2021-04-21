@@ -15,12 +15,12 @@
                 </select>
             </div>
         
-            <div class = 'horario'>
+            
             <label class = "title" for= 'data'> Data</label>
-            <input type="date" id="data" class="form-input" name="horario" placeholder="Data" required>
+            <input type="date" id="data" class="form-input" name="horario" required>
 
             <label class = "title" for= 'horario'> Horario</label>
-            <input type="datetime" id="horario" class="form-input" name="horario" placeholder="Horario" required>
+            <input type="text" id="horario" class="form-input" name="horario" placeholder="Horario" required>
 
             <label class = "title" for= 'conteudo'> Conteudo</label>
             <input type="text" id="conteudo" class="form-input" name="horario" placeholder="Conteúdo do dia" required maxlength="100">

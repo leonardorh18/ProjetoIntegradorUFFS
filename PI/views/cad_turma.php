@@ -35,9 +35,8 @@
         </select>
     </div>
 
-    <div class = 'horario'>
+    
     <input type="text" id="horario" class="form-input" name="horario" placeholder="Descreva o horário" required>
-    <div>
     
     
     <input type="button" class="button-cad" value="Adicionar Alunos"  onclick="addAlunos()">
