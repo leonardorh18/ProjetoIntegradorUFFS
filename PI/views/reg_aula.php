@@ -29,7 +29,7 @@
             <input type="text" id="obs" class="form-input" name="horario" placeholder="Observação" maxlength="100" >
            
             
-            <label class = "title" > Aicione a presença dos alunos</label>
+            <label class = "title" > Adicione a presença dos alunos</label>
             <div class = 'pres-alunos'>
                 <div class = 'aluno-check'>
                     <label ><input type="checkbox" name="aluno1" value="Fulano" >
