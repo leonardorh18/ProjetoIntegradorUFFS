@@ -32,6 +32,24 @@ body {
 	padding-left: 20px;
 	padding-top: 20px;
 }
+
+.rodape {
+	
+	overflow-x: hidden;
+	padding-top: 15px;
+	width: 100%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	text-align: center;
+	background-color:#45ac45;
+	color: rgb(255, 255, 255);
+	
+}
+
+.rodape h4 {
+	
+	padding-bottom: 15px;
+	
+}
 /* --------------------- ASIDE MENU */
 #showMenu{
 	display: none;
@@ -43,7 +61,7 @@ body {
 
 	position: relative;
 	width: 200px;
-	min-height: 110vh;
+	min-height: 90vh;
 
 	float:left;
 	display: block;
@@ -747,6 +765,11 @@ body {
 		padding-top: 20px;
 	}
 
+	.item .opcoes {
+
+		float: left;
+	}
+
 	.main-div-cad-item {
 
 		display: flex;
@@ -803,5 +826,17 @@ body {
 		transition: all 0.3 ease;
 		cursor: pointer;
 	  }
+	  .rodape {
+		display: none;
+		overflow-x: hidden;
+		padding-top: 15px;
+		width: 100%;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+		text-align: center;
+		background-color:#45ac45;
+		color: rgb(255, 255, 255);
+		
+	}
+	
 
   }
