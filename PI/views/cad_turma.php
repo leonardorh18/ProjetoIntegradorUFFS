@@ -38,8 +38,11 @@
     
     <label for="data">Data de inicio da turma</label>
     <input type="date" id="data" class="form-input" name="data"  required>
-    
+
+    <span style="padding-bottom: 20px; font-size: 20px;">Dias de aula(s) da turma</span>
+
     <div class = 'dias-semana'>
+        <br>
         <label ><input type="checkbox" id = 'segunda'name="aluno1" value="segunda" onclick="horaSeg()" >
                 Segunda feira
         </label>
@@ -66,26 +69,24 @@
         <br>
     </div>
     
-    <label for="horseg" style="display: none;" id = 'lhorseg'> Hora da segunda</label>
+    <label for="horseg" style="display: none;" id = 'lhorseg'> Horario da segunda</label>
     <input type="time" id="horseg" class="form-input-hora" name="horseg" placeholder="Horario da segunda" >
 
-    <label for="horter" style="display: none;" id = 'lhorter'> Hora da terça</label>
+    <label for="horter" style="display: none;" id = 'lhorter'> Horario da terça</label>
     <input type="time" id="horter" class="form-input-hora" name="horter" placeholder="Horario da terca" >
 
-    <label for="horqua" style="display: none;" id = 'lhorqua'> Hora da quarta</label>
+    <label for="horqua" style="display: none;" id = 'lhorqua'> Horario da quarta</label>
     <input type="time" id="horqua" class="form-input-hora" name="horqua" placeholder="Horario da quarta" >
 
-    <label for="horqui" style="display: none;" id = 'lhorqui'> Hora da quinta</label>
+    <label for="horqui" style="display: none;" id = 'lhorqui'> Horario da quinta</label>
     <input type="time" id="horqui" class="form-input-hora" name="horqui" placeholder="Horario da quinta" >
 
-    <label for="horsex" style="display: none;" id = 'lhorsex'> Hora da sexta</label>
+    <label for="horsex" style="display: none;" id = 'lhorsex'> Horario da sexta</label>
     <input type="time" id="horsex" class="form-input-hora" name="horsex" placeholder="Horario da sexta" >
 
-    <label for="horsab" style="display: none;" id = 'lhorsab'> Hora do sabado</label>
+    <label for="horsab" style="display: none;" id = 'lhorsab'> Horario do sabado</label>
     <input type="time" id="horsab" class="form-input-hora" name="horsab" placeholder="Horario do sabado" >
 
-    <label for="horario">Descreva o horário</label>
-    <input type="text" id="horario" class="form-input" name="horario" placeholder="Descreva o horário" required>
     
     <input type="button" class="button-cad" value="Adicionar Alunos"  onclick="addAlunos()">
     <br>
