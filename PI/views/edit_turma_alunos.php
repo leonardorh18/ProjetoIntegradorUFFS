@@ -1,12 +1,12 @@
 
 
-    <div class = 'main-div-cad-item'>
+<div class = 'main-div-cad-item'>
 
 
 <form class = 'cad-turma'>
 
 <div>
-        <h2>Adicione os alunos da turma</h2>
+        <h2>Edite os alunos da turma</h2>
         <div class = 'aluno-check'>
             <label ><input type="checkbox" name="aluno1" value="Fulano" >
                 Artur Moreira - X819823

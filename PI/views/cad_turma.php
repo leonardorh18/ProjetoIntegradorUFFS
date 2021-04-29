@@ -4,7 +4,7 @@
 
 
 <form class = 'cad-turma'>
-
+<h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Cadastro de turma</h3>
     <div class = 'select'  style="width:200px;">
         <select class="select-css">
             <option value="0">Selecione o Professor</option>
@@ -36,8 +36,38 @@
     </div>
 
     
-    <input type="text" id="horario" class="form-input" name="horario" placeholder="Descreva o horário" required>
+    <label for="data">Data de inicio da turma</label>
+    <input type="date" id="data" class="form-input" name="data"  required>
     
+    <div class = 'dias-semana'>
+        <label ><input type="checkbox" name="aluno1" value="segunda" >
+                Segunda feira
+        </label>
+        <br>
+        <label ><input type="checkbox" name="aluno1" value="terca" >
+                Terça feira
+        </label>
+        <br>
+        <label ><input type="checkbox" name="aluno1" value="quarta" >
+                Quarta feira
+        </label>
+        <br>
+        <label ><input type="checkbox" name="aluno1" value="quinta" >
+                Quinta feira
+        </label>
+        <br>
+        <label ><input type="checkbox" name="aluno1" value="sexta" >
+                Sexta feira
+        </label>
+        <br>
+        <label ><input type="checkbox" name="aluno1" value="sabado" >
+                Sabado 
+        </label>
+        <br>
+    </div>
+    
+    <label for="horario">Descreva o horário</label>
+    <input type="text" id="horario" class="form-input" name="horario" placeholder="Descreva o horário" required>
     
     <input type="button" class="button-cad" value="Adicionar Alunos"  onclick="addAlunos()">
     <br>

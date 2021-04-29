@@ -142,6 +142,15 @@ body {
 
 /*----------------- CADASTROS*/
 
+.dias-semana{
+
+	display: grid;
+	align-items: flex-start;
+
+	margin-bottom: 30px;
+	
+}
+
 .main-div-opcoes-cad {
 
 	width: 30%;
@@ -186,7 +195,7 @@ body {
 	padding: 45px;
 	text-align: center;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-	margin-top: 150px;
+	margin-top: 80px;
 	width: 40%;
 
 }
