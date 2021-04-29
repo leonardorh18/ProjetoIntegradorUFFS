@@ -217,7 +217,7 @@
 
     function addAlunos (){
 
-    window.location.replace("index.php?view=cad_turma_alunos");
+    window.location.replace("index.php?view=edit_turma_alunos");
     }
 
 
