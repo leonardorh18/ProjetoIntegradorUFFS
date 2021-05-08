@@ -4,23 +4,11 @@
 
 
         <form class = 'cad-turma'>
-        
-            <div class = 'select'  style="width:200px;">
-                <select class="select-css">
-                    <option value="0">Selecione o Professor</option>
-                    <option value="1">Claudio</option>
-                    <option value="2">Mara</option>
-                    <option value="3">Glauci</option>
-         
-                </select>
-            </div>
+        <h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Registro de aula da turma XXXX</h3>
         
             
             <label class = "title" for= 'data'> Data</label>
             <input type="date" id="data" class="form-input" name="horario" required>
-
-            <label class = "title" for= 'horario'> Horario</label>
-            <input type="text" id="horario" class="form-input" name="horario" placeholder="Horario" required>
 
             <label class = "title" for= 'conteudo'> Conteudo</label>
             <input type="text" id="conteudo" class="form-input" name="horario" placeholder="Conteúdo do dia" required maxlength="100">
