@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -8,12 +11,12 @@
 		<div id="login-div">
 			<div class = 'login-form'>
                 <h1>Sistema de controle</h1>
-                <form>
-                    <input type="email" id="email" class="form-input" name="login" placeholder="Usuário de login" required>
+                <form action="views/actions/do_login.php" method="POST">
+                    <input type="text" id="user" class="form-input" name="login" placeholder="Usuário de login" required>
                     
-                    <input type="password" id="password" class="form-input" name="login" placeholder="Senha de usuário"  required>
+                    <input type="password" id="password" class="form-input" name="pass" placeholder="Senha de usuário"  required>
                     
-					<input type="button" class="button-login" value="Entrar"  onclick="logIn()">
+					<input type="submit" class="button-login" value="Entrar" name = 'entrar' >
 					<br>
 					
                 </form>
@@ -26,11 +29,7 @@
 
 <script>
 
-    function logIn(){
 
-        window.location = 'index.php?views=inicio'; 
-
-}
 </script>
 
 <body>

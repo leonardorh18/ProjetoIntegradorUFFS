@@ -1,3 +1,19 @@
+<?php
+
+require_once 'classes/Professor.php';
+
+session_start();
+
+if (!isset($_SESSION['user'])){
+
+	header('Location: login.php');
+}
+
+$user = unserialize($_SESSION['user']);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	
@@ -14,7 +30,7 @@
 <header id="cabecalho">
 
 
-    <h1> Seja bem vindo(a)<span > Fulano</span></h1>
+    <h1> Seja bem vindo(a)<span > <?= $user->getNome_completo()?></span></h1>
    
     
 </header>

@@ -7,7 +7,7 @@
     <div class = 'main-div-cad-item'>
 
 
-        <form>
+        <form action = 'alunoController.php?acao=cadastrar' method="POST">
             <h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Cadastro do aluno</h3>
 
             <label for="nomeCompleto"> Nome completo</label>
@@ -24,7 +24,7 @@
             
 
             
-            <input type="button" class="button-cad" value="Cadastrar"  onclick="logIn()">
+            <input type="submit" class="button-cad" value="Cadastrar" name ='cadaluno'  onclick="logIn()">
             <br>
             
         </form>

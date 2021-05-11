@@ -23,7 +23,7 @@
                
                 <li><a href="index.php?view=precos">Configuração de contas</a> </li>
                 
-                <li><h1> SAIR </h1> </li>
+                <li> <a href="index.php?view=logout"><h1> SAIR </h1></a>  </li>
                 
 
     
