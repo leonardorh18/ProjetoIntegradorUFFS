@@ -32,6 +32,24 @@ class ProfessorDAO {
 
     }
 
+    public function listar(){
+        try {
+   
+            $query = $this->conexao->prepare("select * from professor order by nome_completo asc");
+            //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
+            $query->execute();
+            $prof = $query->fetchAll(PDO::FETCH_CLASS, "Professor");
+            return $prof;
+
+        } catch (PDOException $e){
+
+            echo "Erro no login ". $e->getMessage();
+        }
+
+
+
+    }
+
 
 }
 

@@ -1,41 +1,51 @@
+<?php
 
+function isChecked($aluno, $alunosTurma){
+
+    foreach($alunosTurma as $alunoTurma){
+
+        if ($aluno->getMatricula() == $alunoTurma->getMatricula()){
+
+            return True;
+        }
+
+    }
+    return False;
+
+}
+?>
 
 <div class = 'main-div-cad-item'>
 
 
-<form class = 'cad-turma'>
+<form class = 'cad-turma' method="POST" action="turmaController.php?acao=concluiedit">
 
 <div>
         <h2>Edite os alunos da turma</h2>
-        <div class = 'aluno-check'>
-            <label ><input type="checkbox" name="aluno1" value="Fulano" >
-                Artur Moreira - X819823
-            </label>
-            <br>
-        </div>
+       
+        <?php foreach($alunos as $aluno) {
 
-        <div class = 'aluno-check'>
-            <label ><input type="checkbox" name="aluno2" value="Fulano" checked >
-                Artur Moreira - X819823
-            </label>
-            <br>
-        </div>        
-        <div class = 'aluno-check'>
-            <label ><input type="checkbox" name="aluno3" value="Fulano" checked >
-                Artur Moreira - X819823
-            </label>
-            <br>
-        </div>
-        <div class = 'aluno-check'>
-            <label ><input type="checkbox" name="aluno4" value="Fulano" >
-                Artur Moreira - X819823
-            </label>
-            <br>
-        </div>      
+            if (isChecked($aluno, $alunosTurma)) {
+                    ?>
+                    <div class = 'aluno-check'>
+                        <label ><input type="checkbox" name="alunos[]" value="<?= $aluno->getMatricula()?>" checked>
+                            <?= $aluno->getNome_completo().', matrícula: '.$aluno->getMatricula()?>
+                        </label>
+                        <br>
+                    </div>
+                
+                <?php } else { ?>
+                    <div class = 'aluno-check'>
+                        <label ><input type="checkbox" name="alunos[]" value="<?= $aluno->getMatricula()?>" >
+                            <?= $aluno->getNome_completo().', matrícula: '.$aluno->getMatricula()?>
+                        </label>
+                        <br>
+                    </div>
+        <?php }}?>
 
 </div>
 
-<input type="button" class="button-cad" value="Finalizar edição"  onclick="addAlunos()">
+<input type="submit" class="button-cad" value="Finalizar edição" name = 'addalunos' >
 </form>
 </div>
 

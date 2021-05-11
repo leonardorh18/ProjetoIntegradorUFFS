@@ -1,5 +1,22 @@
 
+<?php
 
+if (isset( $_SESSION['turmaEdit']) ){
+
+    if ( $_SESSION['turmaEdit']){
+        echo  "<script>alert('Turma editada com sucesso!');</script>";
+        unset($_SESSION['turmaEdit']);
+
+    } else {
+
+        echo  "<script>alert('Turma NÃO FOI editada com sucesso!');</script>";
+        unset($_SESSION['turmaEdit']);
+
+
+    }
+
+}
+?>
 
 
 
@@ -14,25 +31,27 @@
 
            <div class = 'header-lista-items'>
 
-            <a href="index.php?view=cad_turma"><h3> Clique aqui para cadastrar uma turma </h3> </a>
+            <a href="turmaController.php?acao=cadastrar"><h3> Clique aqui para cadastrar uma turma </h3> </a>
 
 
 
             </div>
 
+            <?php foreach($turmas as $turma) {?>
             <div class = 'item'>
 
-                <span class = 'nome-item'> Turma 1 Ingles avançado </span>
+                <span class = 'nome-item'> <?= $turma->getCodigo().' '.$turma->getCodIdioma().' '.$turma->getCodNivel()?> </span>
 
                 <div class = 'opcoes'>
 
-                    <a href="index.php?view=edit_turma"><span class = 'item-editar' onclick=""> Editar </span> </a>
-                    <a href=""><span class = 'item-deletar' onclick="deleteAluno('ingles')"> Deletar </span> </a>
+                    <a href="turmaController.php?acao=editar&cod=<?=$turma->getCodigo()?>"><span class = 'item-editar' onclick=""> Editar </span> </a>
+                    <a href="turmaController.php?acao=excluir&cod=<?=$turma->getCodigo()?>" onclick="return confirm('Tem certeza de que deseja excluir esta turma?')"><span class = 'item-deletar'> Deletar </span> </a>
                     <!--<a href=""><span class = 'item-visu' onclick="visuAluno('Leonardo')"> Visualizar </span> </a>  !-->
 
                 </div>
 
             </div>
+            <?php } ?>
 
         </div>
 
