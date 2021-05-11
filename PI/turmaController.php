@@ -297,8 +297,8 @@ if (!isset($_GET['acao'])){
 
 
             } else {
-
-                header("Location: turmaController.php?acao=editar");
+                session_start();
+                header("Location: turmaController.php?acao=editar&cod=".$_SESSION['codEditTurma']);
                 
             }
 
@@ -339,6 +339,19 @@ if (!isset($_GET['acao'])){
     
             }
     
+            break;
+
+            case 'exibir':
+                require_once 'classes/TurmaDAO.php';
+
+                if (isset($_GET['cod'])){
+
+
+                } else {
+
+                    header("Location: turmaController.php");
+
+                }
             break;
     }
 }
