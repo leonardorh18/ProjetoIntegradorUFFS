@@ -5,38 +5,50 @@ CREATE USER 'adm'@'localhost' IDENTIFIED BY '12345';
 GRANT SELECT, INSERT, UPDATE, DELETE ON pi.* TO 'adm'@'localhost';
 
 create table Aluno(
-	matricula varchar(10) not null primary key,
     nome_completo varchar(50) not null,
     email varchar(50) not null,
     telefone varchar(20) not null,
-    status_mat boolean not null
+    status_mat boolean not null,
+    	matricula varchar(10) not null primary key
 );
 create table Idioma(
-	codigo SMALLINT AUTO_INCREMENT PRIMARY KEY,
-    descri varchar(25) not null
+    descri varchar(25) not null,
+    codigo SMALLINT AUTO_INCREMENT PRIMARY KEY
 );
 
 create table Nivel(
-	codigo SMALLINT AUTO_INCREMENT PRIMARY key,
-    descr varchar(50) not null
+    descri varchar(50) not null,
+    codigo SMALLINT AUTO_INCREMENT PRIMARY key
+);
+create table Professor (
+    nome_completo varchar(50) not null,
+    telefone varchar(20) not null,
+    email varchar(50) unique not null ,
+    senha_acesso varchar(100) not null,
+    usu_acesso varchar(50) unique not null,
+    permissao SMALLINT not null,
+    codigo integer AUTO_INCREMENT PRIMARY KEY
+    
 );
 create table Turma (
-	codigo  integer AUTO_INCREMENT PRIMARY KEY,
     data_enc date,
     data_ini date not null,
     codNivel SMALLINT not null,
     codIdioma SMALLINT not null,
+    codProf integer not null,
+	codigo  integer AUTO_INCREMENT PRIMARY KEY,
     FOREIGN KEY (codNivel) REFERENCES Nivel(codigo),
-    FOREIGN KEY (codIdioma) REFERENCES Idioma(codigo)
+    FOREIGN KEY (codIdioma) REFERENCES Idioma(codigo),
+    FOREIGN KEY (codProf) REFERENCES Professor(codigo)
      
 );
 
 create table Lembrete(
-	codigo integer AUTO_INCREMENT PRIMARY key,
     descri varchar(255) not null,
     codProfessor integer not null,
     codTurma integer not null,
     prior SMALLINT not null,
+    codigo integer AUTO_INCREMENT PRIMARY key,
     FOREIGN KEY (codProfessor) REFERENCES Professor(codigo),
     FOREIGN KEY (codTurma) REFERENCES Turma(codigo)
 
@@ -44,25 +56,16 @@ create table Lembrete(
 
 create table Matricula(
     matAluno varchar(10) not null,
-    codTurma integer not null,
+    codTurma integer not null ,
     data date not null,
+    PRIMARY KEY (matAluno, codTurma),
 	FOREIGN KEY (codTurma) REFERENCES Turma(codigo),
     FOREIGN KEY (matAluno) REFERENCES Aluno(matricula)
 );
 
-create table Professor (
-    nome_completo varchar(50) not null,
-    telefone varchar(20) not null,
-    email varchar(50) unique not null,
-    senha_acesso varchar(100) not null,
-    usu_acesso varchar(50) unique not null,
-    permissao SMALLINT not null,
-    codigo integer AUTO_INCREMENT PRIMARY KEY
-    
-);
+
 
 create table Avaliacao(
-	codigo integer AUTO_INCREMENT PRIMARY KEY,
     data Date not null,
     speaking SMALLINT not null,
     reading SMALLINT not null,
@@ -74,19 +77,21 @@ create table Avaliacao(
     apr_ind varchar(2) not null,
     colab varchar(2) not null,
     inter varchar(2) not null,
-    obs varchar(255) not null,
+    obs varchar(255),
     codTurma integer NOT null,
     matAluno varchar(10) NOT null,
+    codigo integer AUTO_INCREMENT PRIMARY KEY,
     FOREIGN KEY (codTurma) REFERENCES Turma(codigo),
     FOREIGN KEY (matAluno) REFERENCES Aluno(matricula)
 );
 
 create table Registro(
-	codigo integer AUTO_INCREMENT PRIMARY key,
+	
     obs varchar(255),
     conteudo varchar(255) not null,
     data date not null,
     codTurma integer not null,
+    codigo integer AUTO_INCREMENT PRIMARY key,
     FOREIGN KEY (codTurma) REFERENCES Turma(codigo)
 );
 
@@ -94,7 +99,28 @@ create table Presenca(
 	status_pres boolean not null,
     codRegistro integer not null,
     matAluno varchar(10) not null,
+    PRIMARY key (codRegistro, matAluno),
     FOREIGN KEY (matAluno) REFERENCES Aluno(matricula),
     FOREIGN KEY (codRegistro) REFERENCES Registro(codigo)
 
 );
+
+create table dia (
+	dia varchar(20) not null,
+	codigo smallint auto_increment primary key
+	
+);
+
+
+create table dia_aula(
+    horario time not null ,
+    codTurma integer not null ,
+    codDia SMALLINT not null ,
+    PRIMARY KEY (codTurma, codDia),
+    FOREIGN KEY (codTurma) REFERENCES turma(codigo),
+    FOREIGN KEY (codDia) REFERENCES dia(codigo)
+
+)
+	
+	
+	
