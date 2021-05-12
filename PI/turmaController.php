@@ -346,6 +346,15 @@ if (!isset($_GET['acao'])){
 
                 if (isset($_GET['cod'])){
 
+                    $turmaDAO = new TurmaDAO();
+                    $horario = $turmaDAO->buscarHorario($_GET['cod']);
+                    $alunos = $turmaDAO->buscarAlunos($_GET['cod']);
+                    $prof = $turmaDAO->buscarProf($_GET['cod']);
+                    include "views/layout/header.php";
+                    include "views/layout/menu.php";
+                    include "views/visu_turma.php";
+                    include "views/layout/footer.php";
+    
 
                 } else {
 

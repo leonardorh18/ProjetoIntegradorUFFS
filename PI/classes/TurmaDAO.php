@@ -1,6 +1,7 @@
 <?php
     require_once 'Turma.php';
     require_once 'Aluno.php';
+    require_once 'Professor.php';
     require_once 'conexao.php';
 class TurmaDAO{
 
@@ -63,6 +64,43 @@ class TurmaDAO{
             $query->execute();
             $turma = $query->fetchAll(PDO::FETCH_CLASS, "Aluno");
             return $turma;
+
+
+        } catch (PDOException $e){
+
+            return False;
+        }
+
+
+    }
+
+    public function buscarProf($cod){
+
+        try{
+            $query = $this->conexao->prepare("select p.* from professor p inner join turma t on t.codProf = p.codigo where t.codigo = :cod");
+            //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
+            $query->bindValue(":cod", $cod);
+            $query->execute();
+            $prof = $query->fetchAll(PDO::FETCH_CLASS, "Professor");
+            return $prof[0];
+
+
+        } catch (PDOException $e){
+
+            return False;
+        }
+
+
+    }
+    public function buscarHorario($cod){
+
+        try{
+            $query = $this->conexao->prepare("select da.horario, di.dia from dia_aula da inner join dia di on di.codigo = da.codDia where da.codTurma = :cod");
+            //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
+            $query->bindValue(":cod", $cod);
+            $query->execute();
+            $horario = $query->fetchAll();
+            return $horario;
 
 
         } catch (PDOException $e){

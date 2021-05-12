@@ -40,12 +40,12 @@ if (isset( $_SESSION['turmaEdit']) ){
             <?php foreach($turmas as $turma) {?>
             <div class = 'item'>
 
-                <span class = 'nome-item'> <?= $turma->getCodigo().' '.$turma->getCodIdioma().' '.$turma->getCodNivel()?> </span>
+                <span class = 'nome-item'> <?= 'Turma: '.$turma->getCodigo().' '.$turma->getCodIdioma().' '.$turma->getCodNivel()?> </span>
 
                 <div class = 'opcoes'>
 
                     <a href="turmaController.php?acao=editar&cod=<?=$turma->getCodigo()?>"><span class = 'item-editar' onclick=""> Editar </span> </a>
-                    <a href="turmaController.php?acao=exibir&cod=<?=$turma->getCodigo()?>"><span class = 'item-editar' onclick=""> Visualizar </span> </a>
+                    <a href="turmaController.php?acao=exibir&cod=<?=$turma->getCodigo()?>"><span class = 'item-visu' onclick=""> Visualizar </span> </a>
                     <a href="turmaController.php?acao=excluir&cod=<?=$turma->getCodigo()?>" onclick="return confirm('Tem certeza de que deseja excluir esta turma?')"><span class = 'item-deletar'> Deletar </span> </a>
                     <!--<a href=""><span class = 'item-visu' onclick="visuAluno('Leonardo')"> Visualizar </span> </a>  !-->
 
