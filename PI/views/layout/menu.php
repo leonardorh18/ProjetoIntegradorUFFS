@@ -15,11 +15,11 @@
                 
                 <li><a href="index.php?view=cadastros">Cadastros</a> </li>
                 
-                <li> <a href="index.php?view=turmas_prof">Controle de turma</a> </li>
+                <li> <a href="controleTurmaController.php">Controle de turma</a> </li>
                 
                 <li> <a href="index.php?view=pedido">Anotações</a> </li>
                 
-                <li><a href="index.php?view=cliente">Históricos</a> </li>
+                <li><a href="historicoController.php">Históricos</a> </li>
                
                 <li><a href="index.php?view=precos">Configuração de contas</a> </li>
                 

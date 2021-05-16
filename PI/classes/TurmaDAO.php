@@ -62,13 +62,69 @@ class TurmaDAO{
             //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
             $query->bindValue(":cod", $cod);
             $query->execute();
-            $turma = $query->fetchAll(PDO::FETCH_CLASS, "Aluno");
-            return $turma;
+            $alunos = $query->fetchAll(PDO::FETCH_CLASS, "Aluno");
+            return $alunos;
 
 
         } catch (PDOException $e){
 
             return False;
+        }
+
+
+    }
+    public function turmasByProf($cod, $enc = True){
+
+        try{
+            if ($enc){
+
+                $query = $this->conexao->prepare("select t.data_ini as data_ini, t.data_enc as data_enc, t.codigo as codigo, n.descri as codNivel, i.descri as codIdioma, p.nome_completo as 
+                codProf from turma t left join nivel n on n.codigo = t.codNivel 
+                left join idioma i on i.codigo = t.codIdioma left join professor p on p.codigo = t.codProf where t.codProf = :cod and data_enc is null
+                order by t.codigo asc;");
+                $query->bindValue(":cod", $cod);
+                $query->execute();
+                $turmas = $query->fetchAll(PDO::FETCH_CLASS, "Turma");
+                return $turmas;
+
+            } else {
+
+                $query = $this->conexao->prepare("select t.data_ini as data_ini, t.data_enc as data_enc, t.codigo as codigo, n.descri as codNivel, i.descri as codIdioma, p.nome_completo as 
+                codProf from turma t left join nivel n on n.codigo = t.codNivel 
+                left join idioma i on i.codigo = t.codIdioma left join professor p on p.codigo = t.codProf 
+                where t.codProf = :cod 
+                order by t.codigo asc;");
+                $query->bindValue(":cod", $cod);
+                $query->execute();
+                $turmas = $query->fetchAll(PDO::FETCH_CLASS, "Turma");
+                return $turmas;
+
+            }
+
+
+
+        } catch (PDOException $e){
+
+           echo $e;
+        }
+
+
+    }
+
+    public function encTurma($cod){
+
+        try{
+            $query = $this->conexao->prepare("update turma set data_enc = :dt where codigo = :cod");
+            $query->bindValue(":cod", $cod);
+            $query->bindValue(":dt", date("Y-m-d"));
+            $query->execute();
+            
+            return True;
+
+
+        } catch (PDOException $e){
+            return False;
+           echo $e;
         }
 
 

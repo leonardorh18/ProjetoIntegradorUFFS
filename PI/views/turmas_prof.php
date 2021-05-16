@@ -1,6 +1,38 @@
 
 
+<?php 
+if (isset($_SESSION['regDone'] )){
 
+
+    if ($_SESSION['regDone'] ){
+
+        
+        echo  "<script>alert('Registro cadastrado com sucesso!');</script>";
+
+    } else {
+
+        echo  "<script>alert('Não foi possivel concluir o registro!');</script>";
+        
+    }
+    unset($_SESSION['regDone'] );
+}
+
+if (isset($_SESSION['encTurma'])){
+
+    if($_SESSION['encTurma']){
+
+        echo  "<script>alert('Turma encerrada!');</script>";
+
+    } else {
+
+        echo  "<script>alert('Não foi possivel encerrar a turma!');</script>";
+
+    }
+
+    unset($_SESSION['encTurma']);
+
+}
+?>
 
 
 <main class = 'main-item'>
@@ -19,21 +51,22 @@
 
 
             </div>
-
+        <?php foreach($turmas as $turma) {?>
             <div class = 'item'>
 
-                <span class = 'nome-item'> Turma 1 Ingles avançado </span>
+                <span class = 'nome-item'> <?= 'Turma: '.$turma->getCodigo().' '.$turma->getCodIdioma().' '.$turma->getCodNivel()?> </span>
 
                 <div class = 'opcoes'>
                     
-                    <a href=""><span class = 'item-encerrar' onclick="deleteAluno('ingles')"> Encerrar turma </span> </a>
-                    <a href=""><span class = 'item-alunos' onclick=""> Alunos</span> </a>
-                    <a href="index.php?view=reg_aula"><span class = 'item-registro' > Registro de aula</span> </a>
+                    <a href="controleTurmaController.php?acao=enc&cod=<?=$turma->getCodigo()?>"><span class = 'item-encerrar' onclick="return confirm('Tem certeza que deseja encerrar esta turma?')"> Encerrar turma </span> </a>
+                    <a href="controleTurmaController.php?acao=alunos&cod=<?=$turma->getCodigo()?>"><span class = 'item-alunos' onclick=""> Alunos </span> </a>
+                    <a href="controleTurmaController.php?acao=reg&cod=<?=$turma->getCodigo() ?>"><span class = 'item-registro' > Registro de aula</span> </a>
                     <!--<a href=""><span class = 'item-visu' onclick="visuAluno('Leonardo')"> Visualizar </span> </a>  !-->
 
                 </div>
 
             </div>
+            <?php  } ?>
 
         </div>
 
@@ -45,29 +78,6 @@
 </main>
 
 
-<script>
-    function deleteAluno(nome){
-
-        if (confirm("Você realmente quer encerrar "+nome+"?")){
-
-            window.alert("Encerrando "+nome);
-        }
-    }
-
-
-
-    function visuAluno(nome){
-        nomes = '';
-        nome = 'leo'
-        for (i = 0; i < 15; i = i + 1){
-
-            nomes = nomes + "\n" + nome;
-
-        }
-        window.alert("Aluno: "+nomes+"? \n Muito lindo");
-
-    }
-</script>
 
 
 </body>

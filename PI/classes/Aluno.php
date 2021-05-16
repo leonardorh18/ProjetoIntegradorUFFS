@@ -7,6 +7,7 @@ class Aluno {
     private $telefone;
     private $matricula;
     private $status_mat;
+    private $status_pres;
 
     /**
      * Get the value of nome_completo
@@ -104,6 +105,26 @@ class Aluno {
     public function setStatus_mat($status_mat)
     {
         $this->status_mat = $status_mat;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status_pres
+     */ 
+    public function getStatus_pres()
+    {
+        return $this->status_pres;
+    }
+
+    /**
+     * Set the value of status_pres
+     *
+     * @return  self
+     */ 
+    public function setStatus_pres($status_pres)
+    {
+        $this->status_pres = $status_pres;
 
         return $this;
     }

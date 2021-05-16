@@ -262,12 +262,20 @@ body {
 .lista{
 
 	display: flex;
+	margin-top: 15px;
 	flex-direction: row;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 
 }
+.lista-hora{
 
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+}
 .item{
 
 	width: 1300px;

@@ -1,5 +1,18 @@
 
+<?php 
 
+require_once 'classes/Professor.php';
+//session_start();
+$user = unserialize($_SESSION['user']);
+
+if ($user->getPermissao() !=1){
+
+    $_SESSION['permFail'] = True;
+    header('Location: index.php');
+}
+
+
+?>
 
 <main class = 'main'>
 
