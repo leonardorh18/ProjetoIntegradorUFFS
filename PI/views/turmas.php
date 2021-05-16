@@ -36,7 +36,7 @@ if (isset( $_SESSION['turmaEdit']) ){
 
 
             </div>
-
+            
             <?php foreach($turmas as $turma) {?>
             <div class = 'item'>
 
@@ -46,7 +46,7 @@ if (isset( $_SESSION['turmaEdit']) ){
 
                     <a href="turmaController.php?acao=editar&cod=<?=$turma->getCodigo()?>"><span class = 'item-editar' onclick=""> Editar </span> </a>
                     <a href="turmaController.php?acao=exibir&cod=<?=$turma->getCodigo()?>"><span class = 'item-visu' onclick=""> Visualizar </span> </a>
-                    <a href="turmaController.php?acao=excluir&cod=<?=$turma->getCodigo() ?> &idi= <?=$turma->getCodIdioma() ?>&nvl=<?=$turma->getNivel()?>" onclick="return confirm('Tem certeza de que deseja excluir esta turma?')"><span class = 'item-deletar'> Deletar </span> </a>
+                    <a href="turmaController.php?acao=excluir&cod=<?=$turma->getCodigo() ?>" onclick="return confirm('Tem certeza de que deseja excluir esta turma?')"><span class = 'item-deletar'> Deletar </span> </a>
                     <!--<a href=""><span class = 'item-visu' onclick="visuAluno('Leonardo')"> Visualizar </span> </a>  !-->
 
                 </div>
