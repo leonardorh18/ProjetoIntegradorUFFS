@@ -347,6 +347,7 @@ if (!isset($_GET['acao'])){
                 if (isset($_GET['cod'])){
 
                     $turmaDAO = new TurmaDAO();
+                    $turma = $turmaDAO->buscar($_GET['cod']);
                     $horario = $turmaDAO->buscarHorario($_GET['cod']);
                     $alunos = $turmaDAO->buscarAlunos($_GET['cod']);
                     $prof = $turmaDAO->buscarProf($_GET['cod']);

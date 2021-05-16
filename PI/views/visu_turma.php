@@ -3,7 +3,25 @@
 
 
 <form class = 'cad-turma' method="POST" action="turmaController.php?acao=concluiedit">
+<?php 
 
+
+$dtini = explode('-', $turma->getData_ini());
+$dtini = $dtini[2].'/'.$dtini[1].'/'.$dtini[0];
+
+if (!empty($turma->getData_enc())){
+
+    $dtenc = explode('-',  $turma->getData_enc());
+    $dtenc = $dtenc[2].'/'.$dtenc[1].'/'.$dtenc[0];
+
+} else {
+
+    $dtenc = 'Em andamento';
+
+}
+
+
+?>
 <div>
         <h2 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Detalhes da Turma</h2>
         <span> <?= 'Professor: '.$prof->getNome_completo()?></span>
@@ -11,6 +29,11 @@
         <span> <?= 'Email: '.$prof->getEmail()?></span>
         <br>
         <span> <?= 'Telefone: '.$prof->getTelefone()?></span>
+
+        <br>
+        <span> <?= 'Data de inicio: '.$dtini?></span>
+        <br>
+        <span> <?= 'Data de encerramento: '.$dtenc?></span>
         <br>
         <?php foreach($horario as $hor) {?>
 
