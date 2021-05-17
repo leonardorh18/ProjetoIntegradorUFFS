@@ -23,12 +23,12 @@ if (!isset($_GET['acao'])){
                 if ($done){
 
                     
-                    header('Location: idiomaController.php');
+                    header('Location: nivelController.php');
 
                 } else{
 
                    
-                    header('Location: idiomaController.php');
+                    header('Location: nivelController.php');
 
 
                 }
@@ -53,19 +53,19 @@ if (!isset($_GET['acao'])){
 
                     if ($done){
 
-                        
+                        $_SESSION['cadNivel'] = True;
                         header('Location: nivelController.php');
 
 
                     } else {
 
-                       
+                        $_SESSION['cadNivel'] = False;
                         header('Location: nivelController.php');
                     }
 
                 } else {
 
-                    $_SESSION['cadIdiomaVazio'] = True;
+                    
                     header('Location: nivelController.php?acao=cadastrar');
 
                 }

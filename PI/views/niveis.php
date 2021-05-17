@@ -1,6 +1,23 @@
 
+<?php 
+
+if (isset( $_SESSION['cadNivel'])){
+
+ if( $_SESSION['cadNivel']){
+
+    echo  "<script>alert('Nivel cadastrado!');</script>";
+
+ } else {
+
+    echo  "<script>alert('Nao foi possivel cadastrar o nivel com sucesso!');</script>";
+ }
+
+ unset( $_SESSION['cadNivel']);
+
+}
 
 
+?>
 
 <main class = 'main-item'>
     
