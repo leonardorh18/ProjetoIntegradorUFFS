@@ -22,8 +22,8 @@ if ($user->getPermissao() !=1){
         <ul>
             <li> <a href="alunoController.php"><span> Cadastrar Aluno</span> </a> </li>
             <li> <a href="turmaController.php"><span> Cadastrar Turma</span> </a> </li>
-            <li> <a href=" "><span> Cadastrar Idioma</span> </a> </li>
-            <li> <a href=" "><span> Cadastrar Nível</span> </a> </li>
+            <li> <a href="idiomaController.php"><span> Cadastrar Idioma</span> </a> </li>
+            <li> <a href="nivelController.php"><span> Cadastrar Nível</span> </a> </li>
             
 
         </ul>

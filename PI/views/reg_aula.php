@@ -28,7 +28,7 @@ if (isset($_SESSION['regAlunos'])){
 
 
         <form class = 'cad-turma' action = 'controleTurmaController.php?acao=reg&cod=<?= $_GET['cod']?>' method="POST">
-        <h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Registro de aula da turma XXXX</h3>
+        <h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Registro de aula</h3>
         
             
             <label class = "title" for= 'data'> Data</label>

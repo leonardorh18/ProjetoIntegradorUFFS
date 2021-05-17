@@ -22,7 +22,37 @@ class NivelDAO{
             return $niveis;
         } catch (PDOException $e){
 
-            echo "Erro no login ". $e->getMessage();
+            echo "Erro". $e->getMessage();
+            return False;
+        }
+    }
+
+    public function cadastrar($nvl){
+
+        try {
+            $query = $this->conexao->prepare("insert into nivel (descri) values (:d)");
+            //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
+            $query->bindValue(':d', $nvl);
+            $query->execute();
+            return True;
+        } catch (PDOException $e){
+
+            echo "erro ". $e->getMessage();
+            return False;
+        }
+    }
+
+    public function delete($cod){
+
+        try {
+            $query = $this->conexao->prepare("delete from nivel where codigo = :cod");
+            
+            $query->bindValue(':cod', $cod);
+            $query->execute();
+            return True;
+        } catch (PDOException $e){
+
+            echo "Erro  ". $e->getMessage();
             return False;
         }
     }
