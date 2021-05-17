@@ -102,19 +102,7 @@ if (isset($_SESSION['vazio'])){
 
 
 <script>
-    function deleteAluno(nome){
 
-        if (confirm("Você realmente que excluir "+nome+"?")){
-
-            window.alert("Excluindo "+nome);
-        }
-    }
-
-    function visuAluno(nome){
-
-        window.alert("Aluno: "+nome+"? \n Muito lindo");
-
-    }
 </script>
 
 
