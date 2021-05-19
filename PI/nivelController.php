@@ -1,7 +1,18 @@
 
 <?php
+
+require_once 'classes/Professor.php';
+include "views/layout/header.php";
+$user = unserialize($_SESSION['user']);
+
+if ($user->getPermissao() !=1){
+
+    $_SESSION['permFail'] = True;
+    header('Location: index.php');
+}
+
 if (!isset($_GET['acao'])){
-    include "views/layout/header.php";
+    
     include "views/layout/menu.php";
     require_once 'classes/NivelDAO.php';
     $nivelDAO = new NivelDAO();
@@ -38,7 +49,7 @@ if (!isset($_GET['acao'])){
         break;
         
         case 'cadastrar':
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";   
            
             require_once 'classes/NivelDAO.php';

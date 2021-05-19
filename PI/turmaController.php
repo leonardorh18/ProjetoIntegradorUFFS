@@ -1,5 +1,15 @@
 
 <?php
+
+require_once 'classes/Professor.php';
+include "views/layout/header.php";
+$user = unserialize($_SESSION['user']);
+
+if ($user->getPermissao() !=1){
+
+    $_SESSION['permFail'] = True;
+    header('Location: index.php');
+}
 if (!isset($_GET['acao'])){
     include "views/layout/header.php";
     include "views/layout/menu.php";
@@ -105,7 +115,7 @@ if (!isset($_GET['acao'])){
         require_once 'classes/AlunoDAO.php';
         require_once 'classes/TurmaDAO.php';
    
-        include "views/layout/header.php";
+        //include "views/layout/header.php";
         include "views/layout/menu.php";
 
         if (isset($_POST['addalunos']) && isset($_POST['alunos'])){
@@ -250,7 +260,7 @@ if (!isset($_GET['acao'])){
 
             }   else if (isset($_GET['cod'])){
 
-                include "views/layout/header.php";
+                //include "views/layout/header.php";
                 $_SESSION['codEditTurma'] = $_GET['cod'];
                 $turmaDAO = new TurmaDAO();
                 $turma = $turmaDAO->buscar($_GET['cod']);
@@ -307,7 +317,7 @@ if (!isset($_GET['acao'])){
             require_once 'classes/AlunoDAO.php';
             require_once 'classes/TurmaDAO.php';
        
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";
     
             if (isset($_POST['addalunos']) && isset($_POST['alunos'])){
@@ -351,7 +361,7 @@ if (!isset($_GET['acao'])){
                     $horario = $turmaDAO->buscarHorario($_GET['cod']);
                     $alunos = $turmaDAO->buscarAlunos($_GET['cod']);
                     $prof = $turmaDAO->buscarProf($_GET['cod']);
-                    include "views/layout/header.php";
+                    //include "views/layout/header.php";
                     include "views/layout/menu.php";
                     include "views/visu_turma.php";
                     include "views/layout/footer.php";

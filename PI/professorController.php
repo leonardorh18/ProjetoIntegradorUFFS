@@ -1,6 +1,8 @@
 
 <?php
 
+
+
 include "views/layout/header.php";
 include "views/layout/menu.php";
 require_once 'classes/ProfessorDAO.php';

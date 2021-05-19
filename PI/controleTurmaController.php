@@ -1,5 +1,7 @@
 
 <?php
+
+
 if (!isset($_GET['acao'])){
     include "views/layout/header.php";
     include "views/layout/menu.php";

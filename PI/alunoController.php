@@ -1,6 +1,19 @@
 <?php
+
+require_once 'classes/Professor.php';
+include "views/layout/header.php";
+$user = unserialize($_SESSION['user']);
+
+if ($user->getPermissao() !=1){
+
+    $_SESSION['permFail'] = True;
+    header('Location: index.php');
+}
+
+
+
 if (!isset($_GET['acao'])){
-    include "views/layout/header.php";
+    //include "views/layout/header.php";
     include "views/layout/menu.php";
     require_once 'classes/AlunoDAO.php';
     $alunoDAO = new AlunoDAO();
@@ -23,7 +36,7 @@ if (!isset($_GET['acao'])){
                     header("Location: alunoController.php");
 
                 }
-                include "views/layout/header.php";
+                //include "views/layout/header.php";
                 include "views/layout/menu.php";
                 include "views/alunos.php";
                 include "views/layout/footer.php";
@@ -64,7 +77,7 @@ if (!isset($_GET['acao'])){
 
             } else{
 
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";
             include "views/cad_aluno.php";
             include "views/layout/footer.php";
@@ -113,7 +126,7 @@ if (!isset($_GET['acao'])){
         case 'editar':
             require_once 'classes/AlunoDAO.php';
             require_once 'classes/Aluno.php';
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";
              if (isset($_GET['mat'])){
                 $alunoDAO = new AlunoDAO();
