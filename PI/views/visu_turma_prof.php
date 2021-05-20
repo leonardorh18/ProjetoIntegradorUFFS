@@ -31,8 +31,8 @@
                 <div class = 'opcoes'>
 
                     
-                    <a href="alunoController.php?acao=deletar&mat=<?=$aluno->getMatricula()?>" onclick="return confirm('Tem certeza de que deseja excluir este aluno?')"><span class = 'item-deletar'> Avaliações </span> </a>
-                    <a href=""><span class = 'item-visu' onclick="return window.alert('Matricula: <?= $aluno->getMatricula()?> \n Aluno: <?= $aluno->getNome_completo()?> \n Telefone: <?= $aluno->getTelefone()?> \n Email: <?= $aluno->getEmail()?>');"> Registrar Avaliação </span> </a>
+                    <a href="#"><span class = 'item-deletar'> Avaliações </span> </a>
+                    <a href=""><span class = 'item-visu' > Registrar Avaliação </span> </a>
 
                 </div>
 
