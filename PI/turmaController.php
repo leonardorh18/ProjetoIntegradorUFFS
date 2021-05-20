@@ -11,7 +11,7 @@ if ($user->getPermissao() !=1){
     header('Location: index.php');
 }
 if (!isset($_GET['acao'])){
-    include "views/layout/header.php";
+   // include "views/layout/header.php";
     include "views/layout/menu.php";
     require_once 'classes/TurmaDAO.php';
     $turmaDAO = new TurmaDAO();
@@ -91,7 +91,7 @@ if (!isset($_GET['acao'])){
                 }
 
             } else {
-                include "views/layout/header.php";
+                 //include "views/layout/header.php";
                 include "views/layout/menu.php";
 
                 $idiomaDAO = new IdiomaDAO();

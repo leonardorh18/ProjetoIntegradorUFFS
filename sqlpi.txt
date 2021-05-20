@@ -1,0 +1,150 @@
+DROP USER IF EXISTS 'adm'@'localhost';
+
+CREATE USER 'adm'@'localhost' IDENTIFIED BY '12345'; 
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON pi.* TO 'adm'@'localhost';
+
+create table Aluno(
+    nome_completo varchar(50) not null,
+    email varchar(50) not null,
+    telefone varchar(20) not null,
+    status_mat boolean not null,
+    	matricula varchar(10) not null primary key
+);
+create table Idioma(
+    descri varchar(25) not null,
+    codigo SMALLINT AUTO_INCREMENT PRIMARY KEY
+);
+
+create table Nivel(
+    descri varchar(50) not null,
+    codigo SMALLINT AUTO_INCREMENT PRIMARY key
+);
+create table Professor (
+    nome_completo varchar(50) not null,
+    telefone varchar(20) not null,
+    email varchar(50) unique not null ,
+    senha_acesso varchar(100) not null,
+    usu_acesso varchar(50) unique not null,
+    permissao SMALLINT not null,
+    off
+ bolean,
+    codigo integer AUTO_INCREMENT PRIMARY KEY
+    
+);
+create table Turma (
+    data_enc date,
+    data_ini date not null,
+    codNivel SMALLINT not null,
+    codIdioma SMALLINT not null,
+    codProf integer not null,
+	codigo  integer AUTO_INCREMENT PRIMARY KEY,
+    FOREIGN KEY (codNivel) REFERENCES Nivel(codigo),
+    FOREIGN KEY (codIdioma) REFERENCES Idioma(codigo),
+    FOREIGN KEY (codProf) REFERENCES Professor(codigo)
+     
+);
+
+create table Lembrete(
+    descri varchar(255) not null,
+    codProfessor integer not null,
+    codTurma integer not null,
+    prior SMALLINT not null,
+    codigo integer AUTO_INCREMENT PRIMARY key,
+    FOREIGN KEY (codProfessor) REFERENCES Professor(codigo),
+    FOREIGN KEY (codTurma) REFERENCES Turma(codigo)
+
+);
+
+create table Matricula(
+    matAluno varchar(10) not null,
+    codTurma integer not null ,
+    data date not null,
+    PRIMARY KEY (matAluno, codTurma),
+	FOREIGN KEY (codTurma) REFERENCES Turma(codigo),
+    FOREIGN KEY (matAluno) REFERENCES Aluno(matricula)
+);
+
+
+
+create table Avaliacao(
+    data Date not null,
+    speaking SMALLINT not null,
+    reading SMALLINT not null,
+    grammar SMALLINT not null,
+    listening SMALLINT not null,
+    lexis SMALLINT not null,
+    writing SMALLINT not null,
+    homework SMALLINT not null,
+    apr_ind varchar(2) not null,
+    colab varchar(2) not null,
+    inter varchar(2) not null,
+    obs varchar(255),
+    codTurma integer NOT null,
+    matAluno varchar(10) NOT null,
+    codigo integer AUTO_INCREMENT PRIMARY KEY,
+    FOREIGN KEY (codTurma) REFERENCES Turma(codigo),
+    FOREIGN KEY (matAluno) REFERENCES Aluno(matricula)
+);
+
+create table Registro(
+	
+    obs varchar(255),
+    conteudo varchar(255) not null,
+    data date not null,
+    codTurma integer not null,
+    codigo integer AUTO_INCREMENT PRIMARY key,
+    FOREIGN KEY (codTurma) REFERENCES Turma(codigo)
+);
+
+create table Presenca(
+	status_pres boolean not null,
+    codRegistro integer not null,
+    matAluno varchar(10) not null,
+    PRIMARY key (codRegistro, matAluno),
+    FOREIGN KEY (matAluno) REFERENCES Aluno(matricula),
+    FOREIGN KEY (codRegistro) REFERENCES Registro(codigo)
+
+);
+
+create table dia (
+	dia varchar(20) not null,
+	codigo smallint auto_increment primary key
+	
+);
+
+
+create table dia_aula(
+    horario time not null ,
+    codTurma integer not null ,
+    codDia SMALLINT not null ,
+    PRIMARY KEY (codTurma, codDia),
+    FOREIGN KEY (codTurma) REFERENCES turma(codigo),
+    FOREIGN KEY (codDia) REFERENCES dia(codigo)
+
+)
+	
+
+insert into professor values ('Ana Clara Oliveira', '9938401', 'anac@gmail.com', 'anac123', 'anac.p', 1, null);
+insert into professor values ('Antonio Hamilton', '99819203', 'anto@gmail.com', 'anto123', 'anto.p', 1, null);
+insert into professor values ('Glaucia Castro', '38481234', 'glau@gmail.com', 'glau123', 'glau.p', 1, null);
+
+insert into idioma values ('Ingles', null);
+insert into idioma values ('Frances', null);
+insert into idioma values ('Espanhol', null);
+insert into idioma values ('Russo', null);
+	
+
+insert into nivel values('kids', null);
+insert into nivel values('iniciante', null);
+insert into nivel values('intermediario', null);
+insert into nivel values('avançado 1', null);
+insert into nivel values('avançado 2', null);
+
+insert into dia values ('segunda', null);
+insert into dia values ('terca', null);
+insert into dia values ('quarta', null);
+insert into dia values ('quinta', null);
+insert into dia values ('sexta', null);
+insert into dia values ('sabado', null);
+	

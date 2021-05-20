@@ -17,7 +17,7 @@
                 
                 <li> <a href="controleTurmaController.php">Controle de turma</a> </li>
                 
-                <li> <a href="index.php?view=pedido">Anotações</a> </li>
+                <li> <a href="anotacaoController.php">Anotações</a> </li>
                 
                 <li><a href="historicoController.php">Históricos</a> </li>
                
