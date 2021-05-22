@@ -43,7 +43,7 @@ if (isset( $_SESSION['cadNivel'])){
 
                 <div class = 'opcoes'>
 
-                    <a href="idiomaController.php?acao=excluir&cod=<?=$nivel->getCodigo() ?>" onclick="return confirm('Tem certeza de que deseja excluir este nivel?')"><span class = 'item-deletar'> Deletar </span> </a>
+                    <a href="nivelController.php?acao=excluir&cod=<?=$nivel->getCodigo() ?>" onclick="return confirm('Tem certeza de que deseja excluir este nivel?')"><span class = 'item-deletar'> Deletar </span> </a>
                     <!--<a href=""><span class = 'item-visu' onclick="visuAluno('Leonardo')"> Visualizar </span> </a>  !-->
 
                 </div>
