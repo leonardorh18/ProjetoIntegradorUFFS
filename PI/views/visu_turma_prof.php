@@ -31,7 +31,7 @@
                 <div class = 'opcoes'>
 
                     
-                    <a href="#"><span class = 'item-deletar'> Avaliações </span> </a>
+                    <a href="#"><span class = 'item-deletar'> Notas </span> </a>
                     <a href=""><span class = 'item-visu' > Registrar Avaliação </span> </a>
 
                 </div>

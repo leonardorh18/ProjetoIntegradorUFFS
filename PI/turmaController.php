@@ -229,7 +229,7 @@ if (!isset($_GET['acao'])){
 
                     } else {
 
-                        include "views/layout/header.php";
+                        //include "views/layout/header.php";
                         $_SESSION['codhor'] = serialize( $codhor);
                         $_SESSION['prof'] = $_POST['professor'];
                         $_SESSION['nivel'] = $_POST['nivel'];

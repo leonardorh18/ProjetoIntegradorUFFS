@@ -59,7 +59,7 @@ if (isset($_SESSION['encTurma'])){
                 <div class = 'opcoes'>
                     
                     <a href="controleTurmaController.php?acao=enc&cod=<?=$turma->getCodigo()?>"><span class = 'item-encerrar' onclick="return confirm('Tem certeza que deseja encerrar esta turma?')"> Encerrar turma </span> </a>
-                    <a href="controleTurmaController.php?acao=alunos&cod=<?=$turma->getCodigo()?>"><span class = 'item-alunos' onclick=""> Alunos </span> </a>
+                    <a href="controleTurmaController.php?acao=alunos&cod=<?=$turma->getCodigo()?>"><span class = 'item-alunos' onclick=""> Avaliações </span> </a>
                     <a href="controleTurmaController.php?acao=reg&cod=<?=$turma->getCodigo() ?>"><span class = 'item-registro' > Adicionar registro</span> </a>
                     <!--<a href=""><span class = 'item-visu' onclick="visuAluno('Leonardo')"> Visualizar </span> </a>  !-->
 
