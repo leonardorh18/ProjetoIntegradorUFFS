@@ -32,10 +32,10 @@
                         <br>
 
                         <?= $aluno->getStatus_pres() == 1 ? '<span style = "color: #129808"> Presente </span>': '<span style = "color: #CD2929"> Ausente </span>'?>
-               
                         <br>
                         <span>
                         <?= 'Matricula: '.$aluno->getmatricula() ?>
+                        <span  style = 'color: red '><?= $aluno->getStatus_mat() == 0 ?'Inativo' : 'Ativo'?></span>
                         </span>
                         <br>
                         <span>

@@ -51,6 +51,24 @@ class AlunoDAO {
 
     }
 
+    public function buscarAluno($mat){
+        try {
+            $query = $this->conexao->prepare("select * from aluno where matricula = :mat");
+            $query->bindValue(":mat", $mat);
+
+            $query->execute();
+            $alunos = $query->fetchAll(PDO::FETCH_CLASS, "Aluno");
+            return $alunos[0];
+        } catch (PDOException $e){
+
+            echo "Erro no login ". $e->getMessage();
+            return False;
+        }
+
+
+
+    }
+
     public function listarName($nome){
         try {
             $query = $this->conexao->prepare("select * from aluno where nome_completo = :n order by nome_completo asc");
@@ -112,11 +130,14 @@ class AlunoDAO {
     }
 
 
-    public function delete($mat){
+    public function activeInactive($mat, $stm){
         try {
+            /*
             $query = $this->conexao->prepare("delete from aluno where matricula = :mat");
-            //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
+            */
+            $query = $this->conexao->prepare("update aluno set status_mat = :sm where matricula = :mat");
             $query->bindValue(":mat", $mat);
+            $query->bindValue(":sm", $stm);
             return $query->execute();
 
 

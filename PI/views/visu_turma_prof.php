@@ -30,7 +30,7 @@
 
                 <div class = 'opcoes'>
 
-                    
+                    <span  style = 'color: #009999 '><?= $aluno->getStatus_mat() == 0 ?'Inativo' : 'Ativo'?></span>
                     <a href="#"><span class = 'item-deletar'> Notas </span> </a>
                     <a href=""><span class = 'item-visu' > Registrar Avaliação </span> </a>
 

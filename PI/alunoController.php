@@ -93,7 +93,7 @@ if (!isset($_GET['acao'])){
             require_once 'classes/Professor.php';
             require_once 'classes/AlunoDAO.php';
 
-            session_start();
+            
 
 
             if (isset($_SESSION['user']) && isset($_GET['mat'])){
@@ -103,7 +103,19 @@ if (!isset($_GET['acao'])){
                 if ($user->getPermissao() == 1) {
 
                     $alunoDAO = new AlunoDAO();
-                    $alunoDAO->delete($_GET['mat']);
+                    $aluno = $alunoDAO->buscarAluno($_GET['mat']);
+                    echo $aluno->getStatus_mat();
+
+                    if ($aluno->getStatus_mat() == 1){
+
+                        $alunoDAO->activeInactive($_GET['mat'], 0);
+
+                    }else  {
+
+                        $alunoDAO->activeInactive($_GET['mat'], 1);
+
+                    }
+                    
 
                     header("Location: alunoController.php");
                     
