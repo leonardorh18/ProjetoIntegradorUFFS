@@ -71,8 +71,9 @@ if (isset($_SESSION['editprof'])){
 
                 <div class = 'opcoes'>
 
+                <span  style = 'color: #009999 '><?= $prof->getStatus_ativ() == 0 ?'Inativo' : 'Ativo'?></span>
                     <a href="professorController.php?acao=editar&cod=<?=$prof->getCodigo()?>"><span class = 'item-editar' onclick=""> Editar </span> </a>
-                    <a href="professorController.php?acao=excluir&cod=<?=$prof->getCodigo()?>" onclick="return confirm('Tem certeza de que deseja excluir este aluno?')"><span class = 'item-deletar'> Deletar </span> </a>
+                    <a href="professorController.php?acao=excluir&cod=<?=$prof->getCodigo()?>" onclick="return confirm('Tem certeza de que deseja Deletar/Ativar este aluno?')"><span class = 'item-deletar'> Deletar/Ativar </span> </a>
                     <a href=""><span class = 'item-visu' onclick="return window.alert('Codigo: <?= $prof->getCodigo()?> \n professor: <?= $prof->getNome_completo()?> \n Telefone: <?= $prof->getTelefone()?> \n Email: <?= $prof->getEmail()?>');"> Visualizar </span> </a>
 
                 </div>

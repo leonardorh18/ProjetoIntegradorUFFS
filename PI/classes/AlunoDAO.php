@@ -50,6 +50,23 @@ class AlunoDAO {
 
 
     }
+    public function listarAtivos(){
+        try {
+            $query = $this->conexao->prepare("select * from aluno where status_mat = 1 order by nome_completo asc");
+            //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
+
+            $query->execute();
+            $alunos = $query->fetchAll(PDO::FETCH_CLASS, "Aluno");
+            return $alunos;
+        } catch (PDOException $e){
+
+            echo "Erro no login ". $e->getMessage();
+            return False;
+        }
+
+
+
+    }
 
     public function buscarAluno($mat){
         try {

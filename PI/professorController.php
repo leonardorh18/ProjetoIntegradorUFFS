@@ -39,9 +39,10 @@ if (!isset($_GET['acao'])){
                     if (strlen($_POST['senha']) < 6 ){
 
                         $_SESSION['editprofsenha'] = True;
-                        header('Location: professorController.php?acao=editar?cod='.$_SESSION['codProfEdit']);
+                        header('Location: professorController.php?acao=editar&cod='.$_SESSION['codProfEdit']);
+                        break;
 
-                    }
+                    } 
 
                     $profDAO = new ProfessorDAO();
                     $done = $profDAO->edit(
@@ -63,9 +64,11 @@ if (!isset($_GET['acao'])){
                     } else {
 
                         $_SESSION['editprof'] = False;
+                        unset($_SESSION['codProfEdit'] );
                         header('Location: professorController.php');
 
                     }
+                
 
                 }
             } else {
@@ -158,7 +161,16 @@ if (!isset($_GET['acao'])){
             if(isset($_GET['cod'])){
 
                 $profDAO = new ProfessorDAO();
-                $prof = $profDAO->delete($_GET['cod']);
+                $prof = $profDAO->buscarProf($_GET['cod']);
+                if ($prof->getStatus_ativ() == 1){
+
+                    $profDAO->delete($_GET['cod'], False);
+
+                } else {
+
+                    $profDAO->delete($_GET['cod'], True);
+                }
+                
                 header('Location: professorController.php');
             }
         break;

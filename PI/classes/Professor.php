@@ -9,6 +9,7 @@ class Professor{
     private $permissao;
     private $codigo;
     private $telefone;
+    private $status_ativ;
     
 
 
@@ -148,6 +149,26 @@ class Professor{
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status_ativ
+     */ 
+    public function getStatus_ativ()
+    {
+        return $this->status_ativ;
+    }
+
+    /**
+     * Set the value of status_ativ
+     *
+     * @return  self
+     */ 
+    public function setStatus_ativ($status_ativ)
+    {
+        $this->status_ativ = $status_ativ;
 
         return $this;
     }

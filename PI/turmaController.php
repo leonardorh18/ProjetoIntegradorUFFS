@@ -101,7 +101,7 @@ if (!isset($_GET['acao'])){
 
                 $niveis = $nivelDAO->listar();
                 $idiomas = $idiomaDAO->listar();
-                $professores = $professorDAO->listar();
+                $professores = $professorDAO->listarAtivos();
                 $dias = $diaDAO->listar();
 
                 include "views/cad_turma.php";
@@ -141,7 +141,7 @@ if (!isset($_GET['acao'])){
         } else {
 
             $alunoDAO = new AlunoDAO(); 
-            $alunos = $alunoDAO->listar();
+            $alunos = $alunoDAO->listarAtivos();
             include "views/cad_turma_alunos.php";
             include "views/layout/footer.php";
 

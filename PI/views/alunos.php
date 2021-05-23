@@ -85,7 +85,7 @@ if (isset($_SESSION['vazio'])){
                 
                     <span  style = 'color: #009999 '><?= $aluno->getStatus_mat() == 0 ?'Inativo' : 'Ativo'?></span>
                     <a href="alunoController.php?acao=editar&mat=<?=$aluno->getMatricula()?>"><span class = 'item-editar' onclick=""> Editar </span> </a>
-                    <a href="alunoController.php?acao=deletar&mat=<?=$aluno->getMatricula()?>" onclick="return confirm('Tem certeza de que deseja excluir este aluno?')"><span class = 'item-deletar'> Inativar/Ativar </span> </a>
+                    <a href="alunoController.php?acao=deletar&mat=<?=$aluno->getMatricula()?>" onclick="return confirm('Tem certeza de que deseja Ativar/Deletar este aluno?')"><span class = 'item-deletar'> Deletar/Ativar </span> </a>
                     <a href=""><span class = 'item-visu' onclick="return window.alert('Matricula: <?= $aluno->getMatricula()?> \n Aluno: <?= $aluno->getNome_completo()?> \n Telefone: <?= $aluno->getTelefone()?> \n Email: <?= $aluno->getEmail()?>');"> Visualizar </span> </a>
 
                 </div>
