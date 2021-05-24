@@ -14,23 +14,25 @@ class TurmaDAO{
     public function delete($cod){
         try {
 
-            
+            $query = $this->conexao->prepare("start transaction");
+            $query->execute();
+
             $query = $this->conexao->prepare("delete from matricula where codTurma = :cod");
             $query->bindValue(":cod", $cod);
             $query->execute();
+            
 
             $query = $this->conexao->prepare("delete from dia_aula where codTurma = :cod");
             $query->bindValue(":cod", $cod);
             $query->execute();
 
-            $query = $this->conexao->prepare("delete from registro where codTurma = :cod");
-            $query->bindValue(":cod", $cod);
-            $query->execute();
 
             $query = $this->conexao->prepare("delete from turma where codigo = :cod");
             $query->bindValue(":cod", $cod);
             $query->execute();
 
+            $query = $this->conexao->prepare("commit");
+            $query->execute();
 
             return True;
 
@@ -38,6 +40,8 @@ class TurmaDAO{
         } catch (PDOException $e){
 
             echo "Erro ao deletar ". $e->getMessage();
+            $query = $this->conexao->prepare("ROLLBACK");
+            $query->execute();
             return False;
         }
 
