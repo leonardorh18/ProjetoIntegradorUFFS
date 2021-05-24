@@ -168,9 +168,20 @@ if (!isset($_GET['acao'])){
                 if ($user->getPermissao() == 1) {
 
                     $TurmaDAO = new TurmaDAO();
-                    $TurmaDAO->delete($_GET['cod']);
+                    $done = $TurmaDAO->delete($_GET['cod']);
 
-                    header("Location: turmaController.php");
+                    if ($done == True){
+
+                        header("Location: turmaController.php");
+                        break;
+
+                    } else {
+                        $_SESSION['delTurma'] = False;
+                        header("Location: turmaController.php");
+                        break;
+                            
+                    }
+                    
                     
                 } else {
                     echo 'nao tem permissao';

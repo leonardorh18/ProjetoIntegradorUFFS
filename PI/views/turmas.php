@@ -16,6 +16,12 @@ if (isset( $_SESSION['turmaEdit']) ){
     }
 
 }
+
+if (isset($_SESSION['delTurma'])){
+
+    echo  "<script>alert('Não é possivel deletar essa turma! Ela deve ter algum registro associado a ela.');</script>";
+    unset($_SESSION['delTurma']);
+}
 ?>
 
 
