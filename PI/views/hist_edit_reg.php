@@ -22,7 +22,7 @@ if (isset( $_SESSION['editRegComplete']) ){
 
 
         <form class = 'cad-turma' action = 'historicoController.php?acao=editreg&cod=<?= $_GET['cod']?>&codT=<?=$_GET['codT']?>' method="POST">
-        <h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Registro de aula da turma XXXX</h3>
+        <h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Registro de aula </h3>
         
             
             <label class = "title" for= 'data'> Data</label>
