@@ -1,5 +1,15 @@
 
+<?php
 
+
+if (isset($_SESSION['camposAlunoCad'])){
+
+    echo  "<script>alert('Complete todos os campos!');</script>";
+    unset($_SESSION['camposAlunoCad']);
+
+
+}
+?>
 
 
 

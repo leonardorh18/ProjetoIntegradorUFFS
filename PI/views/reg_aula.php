@@ -18,7 +18,7 @@ if (isset( $_SESSION['camposRegTurma']) ){
 
 if (isset($_SESSION['regAlunos'])){
 
-    echo  "<script>alert('Selecione ao menos um aluno!');</script>";
+    echo  "<script>alert('Verifique se todos os campos estao preenchidos corretamente!');</script>";
 
     unset( $_SESSION['regAlunos']);
 

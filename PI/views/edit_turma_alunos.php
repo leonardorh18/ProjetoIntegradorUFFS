@@ -24,7 +24,7 @@ function isChecked($aluno, $alunosTurma){
         <h2>Edite os alunos da turma</h2>
        
         <?php foreach($alunos as $aluno) {
-
+            if ($aluno->getStatus_mat() == 1){
             if (isChecked($aluno, $alunosTurma)) {
                     ?>
                     <div class = 'aluno-check'>
@@ -41,7 +41,7 @@ function isChecked($aluno, $alunosTurma){
                         </label>
                         <br>
                     </div>
-        <?php }}?>
+        <?php }}}?>
 
 </div>
 

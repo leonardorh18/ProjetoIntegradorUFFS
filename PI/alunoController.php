@@ -50,8 +50,17 @@ if (!isset($_GET['acao'])){
             if (isset($_POST['cadaluno'])){
                
             require_once 'classes/AlunoDAO.php';
+            require_once 'classes/Aluno.php';
             session_start();
             if (isset($_POST['nomeCompleto']) && isset($_POST['email']) && isset($_POST['tel']) && isset($_POST['matricula'])){
+
+                if (empty($_POST['matricula']) == True || empty($_POST['nomeCompleto']) == True || empty($_POST['email']) == True || empty($_POST['tel']) == True){
+
+                    $_SESSION['camposAlunoCad'] = True;
+                    header("Location: alunoController.php?acao=cadastrar");
+                    break;
+
+                }
 
                 $alunoDAO = new AlunoDAO();
                 $done = $alunoDAO->cadastrar($_POST['matricula'], $_POST['email'], $_POST['nomeCompleto'], $_POST['tel']);
@@ -178,6 +187,14 @@ if (!isset($_GET['acao'])){
             session_start();
             if (isset($_POST['edit'])){
                 
+                if (empty($_POST['matricula']) == True || empty($_POST['nomeCompleto']) == True || empty($_POST['email']) == True || empty($_POST['tel']) == True){
+
+                    $_SESSION['camposAlunoEdit'] = True;
+                    header("Location: alunoController.php?acao=editar&mat=".$_SESSION['matAtual']);
+                    break;
+
+                }
+
                 $alunoDAO = new AlunoDAO();
                 $done = $alunoDAO->edit($_SESSION['matAtual'], $_POST['matricula'],  $_POST['email'], $_POST['nomeCompleto'], $_POST['tel']);
 

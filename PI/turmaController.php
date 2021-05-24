@@ -33,6 +33,14 @@ if (!isset($_GET['acao'])){
 
                 if (isset($_POST['idioma']) && isset($_POST['dtini'])  && isset($_POST['nivel']) && isset($_POST['professor']) && isset($_POST['diasem'])){
 
+                    if (empty($_POST['idioma']) == True || empty($_POST['dtini']) == True || empty($_POST['nivel']) == True || empty($_POST['professor']) == True || empty($_POST['diasem']) == True){
+
+                        $_SESSION['camposCadTurma'] = True;
+                        header("Location: turmaController.php?acao=cadastrar");
+                        break;
+    
+                    }
+
                     $diasem = $_POST['diasem'];
                     $codhor = [];
                     $emp = False;
@@ -71,7 +79,7 @@ if (!isset($_GET['acao'])){
 
                     } else {
 
-                        session_start();
+                        //session_start();
                         $_SESSION['codhor'] = serialize( $codhor);
                         $_SESSION['prof'] = $_POST['professor'];
                         $_SESSION['nivel'] = $_POST['nivel'];
@@ -152,7 +160,7 @@ if (!isset($_GET['acao'])){
         case 'excluir':
             require_once 'classes/ProfessorDAO.php';
             require_once 'classes/TurmaDAO.php';
-            session_start();
+            //session_start();
             if (isset($_SESSION['user']) && isset($_GET['cod'])){
 
                 $user = unserialize($_SESSION['user']);
@@ -191,6 +199,14 @@ if (!isset($_GET['acao'])){
                 
                 if (isset($_POST['idioma']) && isset($_POST['dtini'])  && isset($_POST['nivel']) && isset($_POST['professor']) && isset($_POST['diasem'])){
 
+                    if (empty($_POST['idioma']) == True || empty($_POST['dtini']) == True || empty($_POST['nivel']) == True || empty($_POST['professor']) == True || empty($_POST['diasem']) == True){
+
+                        $_SESSION['camposEditTurma'] = True;
+                        header("Location: turmaController.php?acao=editar&cod=".$_SESSION['codEditTurma']);
+                        break;
+    
+                    }
+
                     $diasem = $_POST['diasem'];
                     $codhor = [];
                     $emp = False;
@@ -204,7 +220,7 @@ if (!isset($_GET['acao'])){
 
                             if (empty($_POST[$hordia])) {
 
-                                session_start();
+                                //session_start();
                                 $_SESSION['camposCadTurma'] = True;
                                 
                                 $emp = True;
@@ -219,6 +235,7 @@ if (!isset($_GET['acao'])){
                             session_start();
                             $_SESSION['camposEditTurma'] = True;
                             header("Location: turmaController.php?acao=editar");
+                            break;
                         };
                     }
                     //print_r($codhor);
@@ -226,6 +243,7 @@ if (!isset($_GET['acao'])){
                     if ($emp){
                         $_SESSION['camposEditTurma'] = True;
                         header("Location: turmaController.php?acao=editar");
+                        break;
 
                     } else {
 
@@ -252,7 +270,7 @@ if (!isset($_GET['acao'])){
 
                     }
                 } else {
-                    session_start();
+                    //ession_start();
                     $_SESSION['camposEditTurma'] = True;
                     header("Location: turmaController.php?acao=editar");
 

@@ -53,7 +53,7 @@ if (!isset($_GET['acao'])){
 
                     $alunos = $_POST['aluno'];
 
-                    if (count($alunos)>0){
+                    if (count($alunos)>0 && empty($_POST['data']) == False && empty($_POST['conteudo']) == False){
 
                         $regDAO = new RegistroDAO();
                         $done = $regDAO->cadastra($_GET['cod'], $alunos, $_POST['obs'], $_POST['conteudo'], $_POST['data']);
@@ -62,11 +62,13 @@ if (!isset($_GET['acao'])){
     
                             $_SESSION['regDone'] = True;
                             header('Location: controleTurmaController.php');
+                            break;
 
                         } else{
     
                             $_SESSION['regDone'] = False;
                             header('Location: controleTurmaController.php');
+                            break;
     
                         }
 
@@ -84,6 +86,7 @@ if (!isset($_GET['acao'])){
 
                     $_SESSION['camposRegTurma'] = True;
                     header('Location: controleTurmaController.php?acao=reg&cod='.$_GET['cod']);
+                    break;
 
 
 

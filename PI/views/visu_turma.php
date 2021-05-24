@@ -59,6 +59,7 @@ if (!empty($turma->getData_enc())){
                         <br>
                         <span>
                         <?= 'Matricula: '.$aluno->getmatricula() ?>
+                        <span  style = 'color: red '><?= $aluno->getStatus_mat() == 0 ?'Inativo' : 'Ativo'?></span>
                         </span>
                         <br>
                     

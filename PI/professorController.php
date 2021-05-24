@@ -112,7 +112,7 @@ if (!isset($_GET['acao'])){
 
                         $_SESSION['cadprofsenha'] = True;
                         header('Location: professorController.php?acao=cadastrar');
-
+                        break;
                     }
 
                     $profDAO = new ProfessorDAO();

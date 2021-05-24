@@ -1,12 +1,13 @@
 
 <?php
 
-if (!isset($_SESSION['user'])){
-    
-    header("Location: ../../index.php?view=alunos");
-    
-}
+if (isset($_SESSION['camposAlunoEdit'])){
 
+    echo  "<script>alert('Complete todos os campos!');</script>";
+    unset($_SESSION['camposAlunoEdit']);
+
+
+}
 
 
 ?>
