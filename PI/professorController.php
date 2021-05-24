@@ -36,6 +36,15 @@ if (!isset($_GET['acao'])){
                 && isset($_POST['email']) && isset($_POST['tel']) && isset($_POST['senha'])
                 && isset($_POST['user']) && isset($_POST['perm']) ){
 
+                    if (empty($_POST['nomeCompleto']) == True || empty($_POST['email']) == True || empty($_POST['tel']) == True || empty($_POST['senha']) == True
+                    || empty($_POST['user']) == True || empty($_POST['perm']) == True){
+
+                        $_SESSION['cadprofPre'] = True;
+                        header('Location: professorController.php');
+                        break;
+    
+                    }
+
                     if (strlen($_POST['senha']) < 6 ){
 
                         $_SESSION['editprofsenha'] = True;
@@ -55,7 +64,7 @@ if (!isset($_GET['acao'])){
                     $_POST['perm'],
                     );
 
-                    if ($done){
+                    if ($done == True){
 
                         $_SESSION['editprof'] = True;
                         unset($_SESSION['codProfEdit'] );
@@ -108,6 +117,15 @@ if (!isset($_GET['acao'])){
                 && isset($_POST['email']) && isset($_POST['tel']) && isset($_POST['senha'])
                 && isset($_POST['user']) && isset($_POST['perm']) ){
 
+                    if (empty($_POST['nomeCompleto']) == True || empty($_POST['email']) == True || empty($_POST['tel']) == True || empty($_POST['senha']) == True
+                    || empty($_POST['user']) == True || empty($_POST['perm']) == True){
+
+                        $_SESSION['cadprofPre'] = True;
+                        header('Location: professorController.php');
+                        break;
+    
+                    }
+
                     if (strlen($_POST['senha']) < 6 ){
 
                         $_SESSION['cadprofsenha'] = True;
@@ -126,14 +144,14 @@ if (!isset($_GET['acao'])){
 
                     );
 
-                    if ($done){
+                    if ($done == True){
                         $_SESSION['cadprof'] = True;
                         header('Location: professorController.php');
 
                         
                     } else {
 
-                        $_SESSION['cadprof'] = True;
+                        $_SESSION['cadprof'] = False;
                         header('Location: professorController.php');
                     }
 

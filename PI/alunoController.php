@@ -65,7 +65,7 @@ if (!isset($_GET['acao'])){
                 $alunoDAO = new AlunoDAO();
                 $done = $alunoDAO->cadastrar($_POST['matricula'], $_POST['email'], $_POST['nomeCompleto'], $_POST['tel']);
                 
-                if ($done){
+                if ($done == True){
                 
                     $_SESSION['cadAlunoDone'] = True;
                    

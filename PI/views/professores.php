@@ -11,11 +11,20 @@ if (isset($_SESSION['cadprof'])){
      } else {
 
 
-        echo  "<script>alert('Não foi possivel cadastrar o professor');</script>";
+        echo  "<script>alert('Não foi possivel cadastrar o professor. Verifique se o Email ou usuário ja estao cadastrados');</script>";
 
      }
 
      unset($_SESSION['cadprof']);
+
+
+}
+
+if (isset($_SESSION['cadprofPre'])){
+
+
+    echo  "<script>alert('Preencha todos os campos');</script>";
+    unset($_SESSION['cadprofPre']);
 
 
 }
@@ -29,7 +38,7 @@ if (isset($_SESSION['editprof'])){
     } else {
 
 
-       echo  "<script>alert('Não foi possivel editar o professor');</script>";
+       echo  "<script>alert('Não foi possivel editar o professor. Verifique se o Email ou usuário ja estao cadastrados');</script>";
 
     }
 

@@ -101,9 +101,9 @@ class ProfessorDAO {
             $query->bindValue(':s', $senha);
             $query->bindValue(':p', $perm);
             $query->bindValue(':o', True);
-            $query->execute();
             
-            return True;
+            
+            return $query->execute();
 
         } catch (PDOException $e){
 
