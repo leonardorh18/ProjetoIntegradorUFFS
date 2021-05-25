@@ -5,6 +5,12 @@ require_once 'classes/Professor.php';
 include "views/layout/header.php";
 $prof = unserialize($_SESSION['user']);
 
+if ($user->getPermissao() != 2){
+
+    $_SESSION['permFail'] = True;
+    header('Location: index.php');
+}
+
 if (!isset($_GET['acao'])){
 
     include "views/layout/menu.php";

@@ -1,9 +1,17 @@
 
 <?php
+include "views/layout/header.php";
+$prof = unserialize($_SESSION['user']);
+
+if ($user->getPermissao() != 2){
+
+    $_SESSION['permFail'] = True;
+    header('Location: index.php');
+}
 
 
 if (!isset($_GET['acao'])){
-    include "views/layout/header.php";
+    //include "views/layout/header.php";
     include "views/layout/menu.php";
     require_once 'classes/TurmaDAO.php';
     require_once 'classes/ProfessorDAO.php';
@@ -19,7 +27,7 @@ if (!isset($_GET['acao'])){
         case 'alunos':
             require_once 'classes/TurmaDAO.php';
             require_once 'classes/RegistroDAO.php';
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";
             if (isset($_GET['cod'])){
 
@@ -45,7 +53,7 @@ if (!isset($_GET['acao'])){
         case 'reg':
             require_once 'classes/TurmaDAO.php';
             require_once 'classes/RegistroDAO.php';
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";
             if (isset($_POST['reg']) && isset($_GET['cod'])){
 

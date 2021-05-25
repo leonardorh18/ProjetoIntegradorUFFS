@@ -37,7 +37,7 @@ class ProfessorDAO {
     public function listarAtivos(){
         try {
    
-            $query = $this->conexao->prepare("select * from professor where status_ativ = 1 order by nome_completo asc");
+            $query = $this->conexao->prepare("select * from professor where status_ativ = 1 and permissao = 2 order by nome_completo asc");
             //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
             $query->execute();
             $prof = $query->fetchAll(PDO::FETCH_CLASS, "Professor");

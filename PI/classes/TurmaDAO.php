@@ -70,7 +70,7 @@ class TurmaDAO{
     public function buscarAlunos($cod){
 
         try{
-            $query = $this->conexao->prepare("select distinct a.* from aluno a inner join matricula m on m.codTurma = :cod and m.matAluno = a.matricula ");
+            $query = $this->conexao->prepare("select distinct a.* from aluno a inner join matricula m on m.codTurma = :cod and m.matAluno = a.matricula where a.status_mat = 1 order by a.nome_completo");
             //$query = $this->conexao->prepare("select * from professor where usu_acesso = :u and senha_acesso = :s");
             $query->bindValue(":cod", $cod);
             $query->execute();

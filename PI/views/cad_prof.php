@@ -25,10 +25,10 @@ if (isset($_SESSION['cadprofsenha'])){
 
 
 <form action = 'professorController.php?acao=cadastrar' method="POST">
-    <h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Cadastro do professor</h3>
+    <h3 style = 'margin-bottom: 20px; color: rgb(19, 132, 167)'>Cadastro de conta</h3>
 
     <label for="nomeCompleto"> Nome completo</label>
-    <input type="text" id="nomeCompleto" class="form-input" name="nomeCompleto" placeholder="Nome completo do professor" required>
+    <input type="text" id="nomeCompleto" class="form-input" name="nomeCompleto" placeholder="Nome completo" required>
     
     <label for="matricula"> Email </label>
     <input type="email" id="email" class="form-input" name="email" placeholder="Email" required>

@@ -47,7 +47,7 @@ class RegistroDAO{
                     (:cod, :st, :mt)");
     
                     $query->bindValue(':cod', $cod);
-                    $query->bindValue(':st', True);
+                    $query->bindValue(':st', 1);
                     $query->bindValue(':mt', $aluno->getMatricula());
                     $query->execute();
 
@@ -58,7 +58,7 @@ class RegistroDAO{
                     (:cod, :st, :mt)");
     
                     $query->bindValue(':cod', $cod);
-                    $query->bindValue(':st', False);
+                    $query->bindValue(':st', 0);
                     $query->bindValue(':mt', $aluno->getMatricula());
                     $query->execute();
                 }
@@ -199,7 +199,7 @@ class RegistroDAO{
                     (:cod, :st, :mt)");
     
                     $query->bindValue(':cod', $codreg);
-                    $query->bindValue(':st', True);
+                    $query->bindValue(':st', 1);
                     $query->bindValue(':mt', $aluno->getMatricula());
                     $query->execute();
 
@@ -210,7 +210,7 @@ class RegistroDAO{
                     (:cod, :st, :mt)");
     
                     $query->bindValue(':cod', $codreg);
-                    $query->bindValue(':st', False);
+                    $query->bindValue(':st', 0);
                     $query->bindValue(':mt', $aluno->getMatricula());
                     $query->execute();
                 }

@@ -67,7 +67,7 @@ if (isset($_SESSION['editprof'])){
 
            <div class = 'header-lista-items'>
 
-            <a href="professorController.php?acao=cadastrar"><h3> Clique aqui para cadastrar um professor </h3> </a>
+            <a href="professorController.php?acao=cadastrar"><h3> Clique aqui para cadastrar uma conta </h3> </a>
 
             </div>
 

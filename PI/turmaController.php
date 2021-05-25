@@ -5,7 +5,7 @@ require_once 'classes/Professor.php';
 include "views/layout/header.php";
 $user = unserialize($_SESSION['user']);
 
-if ($user->getPermissao() !=1){
+if ($user->getPermissao() != 1){
 
     $_SESSION['permFail'] = True;
     header('Location: index.php');

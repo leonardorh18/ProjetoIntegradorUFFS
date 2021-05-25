@@ -1,7 +1,18 @@
 
 <?php
+
+include "views/layout/header.php";
+$prof = unserialize($_SESSION['user']);
+
+if ($user->getPermissao() != 2){
+
+    $_SESSION['permFail'] = True;
+    header('Location: index.php');
+}
+
+
 if (!isset($_GET['acao'])){
-    include "views/layout/header.php";
+    //include "views/layout/header.php";
     include "views/layout/menu.php";
     include "views/historicos.php";
     include "views/layout/footer.php";
@@ -10,7 +21,7 @@ if (!isset($_GET['acao'])){
     switch($_GET['acao']){
 
         case 'reg':
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";
             require_once 'classes/TurmaDAO.php';
             require_once 'classes/ProfessorDAO.php';
@@ -24,7 +35,7 @@ if (!isset($_GET['acao'])){
 
         case 'verreg':
 
-            include "views/layout/header.php";
+           // include "views/layout/header.php";
             include "views/layout/menu.php";
             require_once 'classes/RegistroDAO.php';
         
@@ -47,7 +58,7 @@ if (!isset($_GET['acao'])){
         break;
 
         case 'detreg':
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";
             require_once 'classes/RegistroDAO.php';
 
@@ -68,7 +79,7 @@ if (!isset($_GET['acao'])){
         break;
 
         case 'editreg':
-            include "views/layout/header.php";
+            //include "views/layout/header.php";
             include "views/layout/menu.php";
             require_once 'classes/RegistroDAO.php';
             require_once 'classes/TurmaDAO.php';
