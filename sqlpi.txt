@@ -4,70 +4,69 @@ CREATE USER 'adm'@'localhost' IDENTIFIED BY '12345';
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON pi.* TO 'adm'@'localhost';
 
-create table Aluno(
+create table aluno(
     nome_completo varchar(50) not null,
     email varchar(50) not null,
     telefone varchar(20) not null,
     status_mat boolean not null,
     	matricula varchar(10) not null primary key
 );
-create table Idioma(
+create table idioma(
     descri varchar(25) not null,
     codigo SMALLINT AUTO_INCREMENT PRIMARY KEY
 );
 
-create table Nivel(
+create table nivel(
     descri varchar(50) not null,
     codigo SMALLINT AUTO_INCREMENT PRIMARY key
 );
-create table Professor (
+create table professor (
     nome_completo varchar(50) not null,
     telefone varchar(20) not null,
     email varchar(50) unique not null ,
     senha_acesso varchar(100) not null,
     usu_acesso varchar(50) unique not null,
     permissao SMALLINT not null,
-    off
- bolean,
+    status_ativ boolean not null,
     codigo integer AUTO_INCREMENT PRIMARY KEY
     
 );
-create table Turma (
+create table turma (
     data_enc date,
     data_ini date not null,
     codNivel SMALLINT not null,
     codIdioma SMALLINT not null,
     codProf integer not null,
 	codigo  integer AUTO_INCREMENT PRIMARY KEY,
-    FOREIGN KEY (codNivel) REFERENCES Nivel(codigo),
-    FOREIGN KEY (codIdioma) REFERENCES Idioma(codigo),
-    FOREIGN KEY (codProf) REFERENCES Professor(codigo)
+    FOREIGN KEY (codNivel) REFERENCES nivel(codigo),
+    FOREIGN KEY (codIdioma) REFERENCES idioma(codigo),
+    FOREIGN KEY (codProf) REFERENCES professor(codigo)
      
 );
 
-create table Lembrete(
+create table lembrete(
     descri varchar(255) not null,
     codProfessor integer not null,
     codTurma integer not null,
     prior SMALLINT not null,
     codigo integer AUTO_INCREMENT PRIMARY key,
-    FOREIGN KEY (codProfessor) REFERENCES Professor(codigo),
-    FOREIGN KEY (codTurma) REFERENCES Turma(codigo)
+    FOREIGN KEY (codProfessor) REFERENCES professor(codigo),
+    FOREIGN KEY (codTurma) REFERENCES turma(codigo)
 
 );
 
-create table Matricula(
+create table matricula(
     matAluno varchar(10) not null,
     codTurma integer not null ,
     data date not null,
     PRIMARY KEY (matAluno, codTurma),
-	FOREIGN KEY (codTurma) REFERENCES Turma(codigo),
-    FOREIGN KEY (matAluno) REFERENCES Aluno(matricula)
+	FOREIGN KEY (codTurma) REFERENCES turma(codigo),
+    FOREIGN KEY (matAluno) REFERENCES aluno(matricula)
 );
 
 
 
-create table Avaliacao(
+create table avaliacao(
     data Date not null,
     speaking SMALLINT not null,
     reading SMALLINT not null,
@@ -83,27 +82,27 @@ create table Avaliacao(
     codTurma integer NOT null,
     matAluno varchar(10) NOT null,
     codigo integer AUTO_INCREMENT PRIMARY KEY,
-    FOREIGN KEY (codTurma) REFERENCES Turma(codigo),
-    FOREIGN KEY (matAluno) REFERENCES Aluno(matricula)
+    FOREIGN KEY (codTurma) REFERENCES turma(codigo),
+    FOREIGN KEY (matAluno) REFERENCES aluno(matricula)
 );
 
-create table Registro(
+create table registro(
 	
     obs varchar(255),
     conteudo varchar(255) not null,
     data date not null,
     codTurma integer not null,
     codigo integer AUTO_INCREMENT PRIMARY key,
-    FOREIGN KEY (codTurma) REFERENCES Turma(codigo)
+    FOREIGN KEY (codTurma) REFERENCES turma(codigo) ON DELETE RESTRICT
 );
 
-create table Presenca(
+create table presenca(
 	status_pres boolean not null,
     codRegistro integer not null,
     matAluno varchar(10) not null,
     PRIMARY key (codRegistro, matAluno),
-    FOREIGN KEY (matAluno) REFERENCES Aluno(matricula),
-    FOREIGN KEY (codRegistro) REFERENCES Registro(codigo)
+    FOREIGN KEY (matAluno) REFERENCES aluno(matricula),
+    FOREIGN KEY (codRegistro) REFERENCES registro(codigo)
 
 );
 
@@ -119,15 +118,15 @@ create table dia_aula(
     codTurma integer not null ,
     codDia SMALLINT not null ,
     PRIMARY KEY (codTurma, codDia),
-    FOREIGN KEY (codTurma) REFERENCES turma(codigo),
+    FOREIGN KEY (codTurma) REFERENCES turma(codigo) ON DELETE RESTRICT,
     FOREIGN KEY (codDia) REFERENCES dia(codigo)
 
-)
+);
 	
 
-insert into professor values ('Ana Clara Oliveira', '9938401', 'anac@gmail.com', 'anac123', 'anac.p', 1, null);
-insert into professor values ('Antonio Hamilton', '99819203', 'anto@gmail.com', 'anto123', 'anto.p', 1, null);
-insert into professor values ('Glaucia Castro', '38481234', 'glau@gmail.com', 'glau123', 'glau.p', 1, null);
+insert into professor values ('Ana Clara Oliveira', '9938401', 'anac@gmail.com', 'anac123', 'anac.p', 1, 0, null);
+insert into professor values ('Antonio Hamilton', '99819203', 'anto@gmail.com', 'anto123', 'anto.p', 1, 0, null);
+insert into professor values ('Glaucia Castro', '38481234', 'glau@gmail.com', 'glau123', 'glau.p', 2, 0, null);
 
 insert into idioma values ('Ingles', null);
 insert into idioma values ('Frances', null);
@@ -148,3 +147,10 @@ insert into dia values ('quinta', null);
 insert into dia values ('sexta', null);
 insert into dia values ('sabado', null);
 	
+SET foreign_key_checks = 1
+
+mysql://uzhn9zaut9yqayia:hmbxb6qut5optn53@klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/u8gc31k9oz6a4imb
+
+
+
+mysql://b74cd9ebe77201:9391dfb5@us-cdbr-east-03.cleardb.com/heroku_841c8e9b9427460?reconnect=true
